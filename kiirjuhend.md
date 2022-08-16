@@ -1,7 +1,11 @@
-# Quick Start
+---
+description: Konkreetsed näited, kuidas kasutada selle API põhifunktsioone
+---
+
+# Kiirjuhend
 
 {% hint style="info" %}
-**Good to know:** A quick start guide can be good to help folks get up and running with your API in a few steps. Some people prefer diving in with the basics rather than meticulously reading every page of documentation!
+See kiirjuhend seletab näidete varal API põhilisi funktsioone. Me loome kõigepealt uue osakonna ja lisame sinna uue töötaja. Seejärel loome selle töötaja nimel uue taotluse, lisame sellele faili ja saadame taotluse Rahvusarhiivi. Lõpuks kuvame me taotluse detailvaate ja pärime, mis olekus on taotluse menetlemine. Me teeme seda kõike API test-keskkonnas.
 {% endhint %}
 
 ## Get your API keys

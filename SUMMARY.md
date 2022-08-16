@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Sissejuhatus](README.md)
-* [Quick Start](quick-start.md)
+* [Kiirjuhend](kiirjuhend.md)
 
 ## Reference
 

@@ -1,5 +1,5 @@
 ---
-description: Ülevaade sellest, miks see API on loodud ja mida sellega teha saab
+description: Miks see API on loodud ja mida sellega teha saab?
 ---
 
 # Sissejuhatus
@@ -22,10 +22,14 @@ Veebirakendus on selles mõttes autonoomne, et selle kasutajad (SKA töötajad) 
 
 ## API
 
-E-arhiiviteatise taotlemise API, mida käesolev veebilehekülg dokumenteerib, toetab kõiki samu funktsioone, mida ülalmainitud veebirakendus.&#x20;
+E-arhiiviteatise taotlemise API, mida käesolev lehekülg dokumenteerib, dubleerib ülalmainitud veebirakenduse kõiki funktsioone.&#x20;
 
 API kaudu saab luua, muuta ja kustutada e-arhiiviteatise taotlusi, kasutajaid (SKA töötajaid, kes taotlusi koostavad) ja üksuseid (SKA osakondi, millesse töötajad kuuluvad). Loodud taotlustele on võimalik lisada faile ja lõplikult vormistatud taotlused saab saata Rahvusarhiivi, nii et need laekuvad Rahvusarhiivi arhiiviteatiste menetlemise moodulisse.
 
 Niisiis on selle API abil võimalik luua mistahes teise infosüsteemi osana mistahes domeeni alla kasutajaliides, mis sarnaneb Rahvusarhiivi loodud rakendusega[ https://www.ra.ee/eteatis/](https://www.ra.ee/eteatis/).
 
-**API ekraanivaated (Postman)**
+API kasutab sama _backendi_ ja salvestab andmeid samasse baasi, kuhu veebirakenduski. API kaudu loodud taotlusi saab vaadata veebirakenduses ja vastupidi — veebirakenduses loodud taotluste andmeid saab pärida API kaudu. Pikemas perspektiivis kaob veebirakendus ära ja jääb ainult API. &#x20;
+
+**API Postman ekraanivaade**
+
+![](.gitbook/assets/postman.png)
