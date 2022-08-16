@@ -1,8 +1,24 @@
-# Welcome!
+---
+description: Ülevaade sellest, miks see API on loodud ja mida sellega teha saab
+---
 
-## Welcome to MyAPI
+# Sissejuhatus
 
-Welcome to MyAPI! Here you'll find all the documentation you need to get up and running with the MyAPI API.
+## Veebirakendus
+
+Alates 2013. aastast on Sotsiaalkindlustusameti töötajad saanud kasutada Rahvusarhiivi loodud ja Rahvusarhiivi domeenis asuvat veebirakendust [https://www.ra.ee/eteatis/](https://www.ra.ee/eteatis/), et taotleda sealtkaudu Rahvusarhiivilt e-arhiiviteatisi.
+
+Nimetatud veebirakendus võimaldab luua, muuta ja kustutada e-arhiiviteatise taotlusi, kasutajaid (SKA töötajaid, kes taotlusi koostavad) ja üksuseid (SKA osakondi, millesse töötajad kuuluvad). Loodud taotlustele on võimalik lisada faile ja lõplikult vormistatud taotlused saab saata Rahvusarhiivi, nii et need laekuvad Rahvusarhiivi arhiiviteatiste menetlemise moodulisse.
+
+Veebirakendus on selles mõttes autonoomne, et selle kasutajad (SKA töötajad) saavad kõiki vajalikke tegevusi teha ilma välise abita (Rahvusarhiivi töötajate abita).&#x20;
+
+**Ekraanivaated**
+
+![](.gitbook/assets/E-arhiiviteatis-Avaleht.png) ![](.gitbook/assets/E-arhiiviteatis-Uus-taotlus.png)
+
+![](.gitbook/assets/E-arhiiviteatis-Vaata-taotlust.png) ![](.gitbook/assets/E-arhiiviteatis-Taotlused.png)
+
+![](.gitbook/assets/E-arhiiviteatis-Halda-töötajaid.png) ![](.gitbook/assets/E-arhiiviteatis-Halda-üksusi.png)
 
 ## Want to jump right in?
 

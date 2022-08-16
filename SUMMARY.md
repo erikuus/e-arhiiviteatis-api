@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome!](README.md)
+* [Sissejuhatus](README.md)
 * [Quick Start](quick-start.md)
 
 ## Reference
