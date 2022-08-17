@@ -18,7 +18,7 @@ Veebirakendus on selles mõttes autonoomne, et selle kasutajad (SKA töötajad) 
 
 ![](.gitbook/assets/E-arhiiviteatis-Vaata-taotlust.png) ![](.gitbook/assets/E-arhiiviteatis-Taotlused.png)
 
-![](.gitbook/assets/E-arhiiviteatis-Halda-töötajaid.png) ![](.gitbook/assets/E-arhiiviteatis-Halda-üksusi.png)
+![](<.gitbook/assets/E-arhiiviteatis-Halda-töötajaid (1).png>) ![](.gitbook/assets/E-arhiiviteatis-Halda-üksusi.png)
 
 ## API
 
