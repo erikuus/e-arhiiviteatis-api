@@ -3,8 +3,10 @@
 * [Sissejuhatus](README.md)
 * [Kiirjuhend](kiirjuhend.md)
 
-## Reference
+## PÄRINGUD
 
-* [API Reference](reference/api-reference/README.md)
-  * [Pets](reference/api-reference/pets.md)
-  * [Users](reference/api-reference/users.md)
+* [Kasutaja](paeringud/kasutaja.md)
+* [Taotlus](paeringud/taotlus.md)
+* [Üksus](paeringud/ueksus.md)
+* [Töötaja](paeringud/toeoetaja.md)
+* [Fail](paeringud/fail.md)
