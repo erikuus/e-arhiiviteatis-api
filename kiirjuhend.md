@@ -1,132 +1,80 @@
 ---
-description: Konkreetsed näited, kuidas kasutada selle API põhifunktsioone
+description: Konkreetsed näited, kuidas kasutada API põhifunktsioone
 ---
 
 # Kiirjuhend
 
 {% hint style="info" %}
-See kiirjuhend seletab näidete varal API põhilisi funktsioone. Me loome kõigepealt uue osakonna ja lisame sinna uue töötaja. Seejärel loome selle töötaja nimel uue taotluse, lisame sellele faili ja saadame taotluse Rahvusarhiivi. Lõpuks kuvame me taotluse detailvaate ja pärime, mis olekus on taotluse menetlemine. Me teeme seda kõike API test-keskkonnas.
+See kiirjuhend seletab näidete varal API põhilisi funktsioone. Me ei süvene siin detailidesse ega kommenteeri päringute kõiki parameetreid, kuna need on põhjalikult dokumenteeritud järgnevatel lehekülgedel. Siin me loome kiirelt uue osakonna ja lisame sinna uue töötaja. Seejärel loome selle töötaja nimel uue taotluse, lisame sellele faili ja saadame taotluse Rahvusarhiivi. Lõpuks kuvame me taotluse detailvaate ja pärime, mis olekus on taotluse menetlemine. Me vaatame paralleelselt, kuidas need tegevused kajastuvad veebirakenduse kasutajaliideses. Me teeme seda kõike test-keskkonnas.&#x20;
 {% endhint %}
 
-## Get your API keys
+## Juurdepääsu taotlemine
 
-Your API requests are authenticated using API keys. Any request that doesn't include an API key will return an error.
+Käesolev API on üks moodul Rahvusarhiivi suuremast API-süsteemist. API kasutaja autentimine ja autoriseerimine toimub kõigi moodulite puhul ühtmoodi.&#x20;
 
-You can generate an API key from your Dashboard at any time.
+Kõigepealt tuleb luua konto Rahvusarhiivi virtuaalses uurimissaalis: [https://www.ra.ee/vautest/index.php/et/account/create](https://www.ra.ee/vautest/index.php/et/account/create).&#x20;
 
-## Install the library
+Seejärel tuleb saata API kasutamise taotlus e-kirjaga aadressil admin.vau@ra.ee. Kirjale tuleb lisada registreeritud kasutajanimi ja selgitus, millist API-moodulit ja milleks soovitakse kasutada. Selle kiirjuhendi jaoks registreerin ma kasutaja "erik" ja taotlen ligipääsu e-arhiiviteatise API-moodulile.&#x20;
 
-The best way to interact with our API is to use one of our official libraries:
+Kui Rahvusarhiivi administraator rahuldab mu taotluse ja annab kasutajale "erik" vastava õiguse, saan ma oma kasutajanime ja salasõna kasutades teha kõiki e-arhiiviteatise API päringuid.&#x20;
 
-{% tabs %}
-{% tab title="Node" %}
+Kui ma unustan oma salasõna, saan teha uue siin: [https://www.ra.ee/vautest/index.php/et/account/forgotPassword](https://www.ra.ee/vautest/index.php/et/account/forgotPassword)
+
+## Tokeni pärimine
+
+Kõigile päringutele tuleb ühe parameetrina lisada juurde ajutiselt kehtiv kood ehk _token_. Kui _token_ puudub või on aegunud, päring ei õnnestu.
+
+_Tokeni_ pärimiseks käivitame me järgmise päringu:
+
 ```
-# Install via NPM
-npm install --save my-api
+curl --location --request POST '{{apiBaseUrl}}/api/user/verify' \
+--form 'username="erik"' \
+--form 'password="•••••••"'
 ```
-{% endtab %}
-
-{% tab title="Python" %}
-```
-# Install via pip
-pip install --upgrade myapi
-```
-{% endtab %}
-{% endtabs %}
 
 {% hint style="info" %}
-**Good to know:** Using tabs to separate out different languages is a great way to present technical examples or code documentation without cramming your docs with extra sections or pages per language.
+See ja kõik järgnevad päringu näited on cUrl formaadis. Muutuja \{{apiBaseUrl\}} on käesoleva kiirjuhendi kontekstist https://www.ra.ee/vautest/index.php/. Tärnide asemel tuleb kasutada salasõna, mis registreeriti Rahvusarhiivi virtuaalses uurimissaalis ja mis on seotud kontoga, millele Rahvusarhiivi administraator andis API kasutamise eriõiguse.
 {% endhint %}
 
-## Make your first request
+Päringu vastuseks on JSON:
 
-To make your first request, send an authenticated request to the pets endpoint. This will create a `pet`, which is nice.
-
-{% swagger baseUrl="https://api.myapi.com/v1" method="post" path="/pet" summary="Create pet." %}
-{% swagger-description %}
-Creates a new pet.
-{% endswagger-description %}
-
-{% swagger-parameter in="body" name="name" required="true" type="string" %}
-The name of the pet
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="owner_id" required="false" type="string" %}
-The 
-
-`id`
-
- of the user who owns the pet
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="species" required="false" type="string" %}
-The species of the pet
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="breed" required="false" type="string" %}
-The breed of the pet
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="Pet successfully created" %}
-```javascript
+```json
 {
-    "name"="Wilson",
-    "owner": {
-        "id": "sha7891bikojbkreuy",
-        "name": "Samuel Passet",
-    "species": "Dog",}
-    "breed": "Golden Retriever",
+    "responseStatus": "ok",
+    "userId": 3,
+    "userFirstname": "Erik",
+    "userLastname": "Uus",
+    "userEmail": "erik.uus@ra.ee",
+    "accessToken": "71e0d98f1ab52c225d655359190b6844",
+    "tokenLifetime": 3600,
+    "requestUnixTime": 1660724872
 }
 ```
-{% endswagger-response %}
 
-{% swagger-response status="401" description="Permission denied" %}
+## Osakonna loomine
 
-{% endswagger-response %}
-{% endswagger %}
+Kasutades eelnevas vastuses saadud _token_it, käivitame päringu:
 
-{% hint style="info" %}
-**Good to know:** You can use the API Method block to fully document an API method. You can also sync your API blocks with an OpenAPI file or URL to auto-populate them.
-{% endhint %}
-
-Take a look at how you might call this method using our official libraries, or via `curl`:
-
-{% tabs %}
-{% tab title="curl" %}
 ```
-curl https://api.myapi.com/v1/pet  
-    -u YOUR_API_KEY:  
-    -d name='Wilson'  
-    -d species='dog'  
-    -d owner_id='sha7891bikojbkreuy'  
+curl --location --request POST '{{apiBaseUrl}}/api/ska/department/create?token=71e0d98f1ab52c225d655359190b6844' \
+--data-raw '{
+    "name": "Test osakond",
+    "address": "Tammsaare 8-25, Tartu",
+    "zip": "51006",
+    "email": "erik.uus@ra.ee",
+    "phone": "+372 5322 5388"
+}'
 ```
-{% endtab %}
 
-{% tab title="Node" %}
-```javascript
-// require the myapi module and set it up with your API key
-const myapi = require('myapi')(YOUR_API_KEY);
+Päringu vastuseks on JSON:
 
-const newPet = away myapi.pet.create({
-    name: 'Wilson',
-    owner_id: 'sha7891bikojbkreuy',
-    species: 'Dog',
-    breed: 'Golden Retriever',
-})
+```json
+{
+    "responseStatus": "ok",
+    "departmentId": 36
+}
 ```
-{% endtab %}
 
-{% tab title="Python" %}
-```python
-// Set your API key before making the request
-myapi.api_key = YOUR_API_KEY
+Veebirakenduse näeb loodud osakond välja nii:
 
-myapi.Pet.create(
-    name='Wilson',
-    owner_id='sha7891bikojbkreuy',
-    species='Dog',
-    breed='Golden Retriever',
-)
-```
-{% endtab %}
-{% endtabs %}
+![](<.gitbook/assets/E-arhiiviteatis-Halda-üksusi (1).png>)
