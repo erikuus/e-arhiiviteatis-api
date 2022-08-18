@@ -8,6 +8,6 @@ Käesolevas dokumentatsioonis algavad kõik päringute aadressid järgmiselt: `{
 
 See on API juuraadressi muutuja, mille väärtus sõltub sellest, kas kasutatakse test- või tootekeskkonda.&#x20;
 
-Testkeskkonnas on API juuraadress **https://www.ra.ee/vautest/index.php**
+Testkeskkonnas on API juuraadress **https://www.ra.ee/vautest/index.php/api**
 
-Tootekeskkonnas **https://www.ra.ee/vau/index.php**
+Tootekeskkonnas **https://www.ra.ee/vau/index.php/api**

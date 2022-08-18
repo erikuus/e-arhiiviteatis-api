@@ -7,7 +7,7 @@
 
 ## PÄRINGUD
 
-* [Kasutaja](paeringud/kasutaja/README.md)
+* [Kasutaja](paeringud/kasutaja.md)
   * [user/verify](paeringud/kasutaja/user-verify.md)
 * [Taotlus](paeringud/taotlus.md)
 * [Üksus](paeringud/ueksus.md)

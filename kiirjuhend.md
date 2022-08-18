@@ -24,7 +24,7 @@ Alustamiseks peab esiteks omama Rahvusarhiivi kasutajakontot, millele administra
 [juuraadress.md](juuraadress.md)
 {% endcontent-ref %}
 
-Selles kiirjuhendis on kasutatud kontot, mille kasutajanimi on "erik" ja API testkeskkonda, mille juuraadess on "https://www.ra.ee/vautest/index.php".
+Selles kiirjuhendis on kasutatud kontot, mille kasutajanimi on "erik" ja API testkeskkonda, mille juuraadess on "https://www.ra.ee/vautest/index.php/api".
 
 ## Tokeni pärimine
 
@@ -33,7 +33,7 @@ Kõigile päringutele tuleb ühe parameetrina lisada juurde ajutiselt kehtiv koo
 _Tokeni_ pärimiseks käivitame me järgmise päringu:
 
 ```shell
-curl --location --request POST '{{apiBaseUrl}}/api/user/verify' \
+curl --location --request POST '{{apiBaseUrl}}/user/verify' \
 --form 'username="erik"' \
 --form 'password="•••••••"'
 ```
@@ -62,7 +62,7 @@ Päringu vastuseks on JSON:
 Kasutades eelnevas vastuses saadud __ tokenit, käivitame päringu:
 
 ```shell
-curl --location --request POST '{{apiBaseUrl}}/api/ska/department/create?token=71e0d98f1ab52c225d655359190b6844' \
+curl --location --request POST '{{apiBaseUrl}}/ska/department/create?token=71e0d98f1ab52c225d655359190b6844' \
 --data-raw '{
     "name": "Test osakond",
     "address": "Tammsaare 8-25, Tartu",
@@ -90,7 +90,7 @@ Veebirakenduse näeb loodud osakond välja nii:
 Kasutades eelnevatest vastustest saadud andmeid (token, departmentId), käivitame päringu:
 
 ```shell
-curl --location --request POST '{{apiBaseUrl}}/api/ska/employee/create?token=71e0d98f1ab52c225d655359190b6844' \
+curl --location --request POST '{{apiBaseUrl}}/ska/employee/create?token=71e0d98f1ab52c225d655359190b6844' \
 --data-raw '{
     "firstname": "Erik",
     "lastname": "Uus",
@@ -118,7 +118,7 @@ Veebirakenduse näeb loodud töötaja välja nii:
 Kasutades eelnevatest vastustest saadud andmeid (token, employeeId, departmentId), käivitame päringu:
 
 ```shell
-curl --location --request POST '{{apiBaseUrl}}/api/ska/application/create?token=71e0d98f1ab52c225d655359190b6844' \
+curl --location --request POST '{{apiBaseUrl}}/ska/application/create?token=71e0d98f1ab52c225d655359190b6844' \
 --data-raw '{
     "Application": {
         "applicant_firstname": "Erik",
@@ -185,13 +185,13 @@ Päringu vastuseks on JSON:
 
 Veebirakenduse näeb loodud taotlus välja nii:
 
-![](<.gitbook/assets/E-arhiiviteatis-Vaata-taotlust (2) (1).png>)
+![](<.gitbook/assets/E-arhiiviteatis-Vaata-taotlust (2).png>)
 
 ## Faili lisamine
 
 Kasutades eelnevatest vastustest saadud andmeid (token, employeeId, applicationId), käivitame päringu:
 
-<pre class="language-shell"><code class="lang-shell"><strong>curl --location --request POST '{{apiBaseUrl}}/api/ska/file/create?token=71e0d98f1ab52c225d655359190b684' \
+<pre class="language-shell"><code class="lang-shell"><strong>curl --location --request POST '{{apiBaseUrl}}/ska/file/create?token=71e0d98f1ab52c225d655359190b684' \
 </strong>--data-raw '{
     "application_id": 16610,
     "employee_id": 310,
@@ -218,15 +218,14 @@ Veebirakenduses näeb lisatud fail välja nii:
 Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
 
 ```shell
-curl --location --request PUT '{{apiBaseUrl}}/api/ska/application/send?token=71e0d98f1ab52c225d655359190b6844&id=16610'
+curl --location --request PUT '{{apiBaseUrl}}/ska/application/send?token=71e0d98f1ab52c225d655359190b6844&id=16610'
 ```
 
 Päringu vastuseks on JSON:
 
 ```json
 {
-    "responseStatus": "ok",
-    "applicationId": 16610
+    "responseStatus": "ok"
 }
 ```
 
@@ -239,7 +238,7 @@ Taotlus ilmub Rahvusarhiivi arhiivipäringute haldamise moodulisse:
 Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
 
 ```shell
-curl --location --request GET '{{apiBaseUrl}}/api/ska/application/status?token=71e0d98f1ab52c225d655359190b6844&id=16610'
+curl --location --request GET '{{apiBaseUrl}}/ska/application/status?token=71e0d98f1ab52c225d655359190b6844&id=16610'
 ```
 
 Päringu vastuseks on JSON:
@@ -260,7 +259,7 @@ Päringu vastuseks on JSON:
 Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
 
 ```shell
-curl --location --request GET '{{apiBaseUrl}}/api/ska/application/view?token=71e0d98f1ab52c225d655359190b6844&id=16610'
+curl --location --request GET '{{apiBaseUrl}}/ska/application/view?token=71e0d98f1ab52c225d655359190b6844&id=16610'
 ```
 
 Päringu vastuseks on JSON:
@@ -370,14 +369,14 @@ Päringu vastuseks on JSON:
 
 Veebirakenduses näeb saadetud taotlus välja nii:
 
-![](<.gitbook/assets/E-arhiiviteatis-Vaata-taotlust (2).png>)
+![](<.gitbook/assets/E-arhiiviteatis-Vaata-taotlust (2) (1).png>)
 
 ## Vastuse pärimine
 
 Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
 
 ```shell
-curl --location --request GET '{{apiBaseUrl}}/api/ska/application/result?token=71e0d98f1ab52c225d655359190b6844&id=16610'
+curl --location --request GET '{{apiBaseUrl}}/ska/application/result?token=71e0d98f1ab52c225d655359190b6844&id=16610'
 ```
 
 Päringu vastuseks on JSON:
