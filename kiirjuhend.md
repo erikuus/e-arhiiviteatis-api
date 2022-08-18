@@ -5,20 +5,30 @@ description: Konkreetsed näited, kuidas kasutada API põhifunktsioone
 # Kiirjuhend
 
 {% hint style="info" %}
-See kiirjuhend seletab näidete varal API põhilisi funktsioone. Me ei süvene siin detailidesse ega kommenteeri päringute kõiki parameetreid, kuna need on põhjalikult dokumenteeritud järgnevatel lehekülgedel. Siin me loome kiirelt uue osakonna ja lisame sinna uue töötaja. Seejärel loome selle töötaja nimel uue taotluse, lisame sellele faili ja saadame taotluse Rahvusarhiivi. Lõpuks kuvame me taotluse detailvaate ja pärime, mis olekus on taotluse menetlemine. Me vaatame paralleelselt, kuidas need tegevused kajastuvad veebirakenduse kasutajaliideses. Me teeme seda kõike test-keskkonnas.&#x20;
+See kiirjuhend seletab näidete varal API põhilisi funktsioone. Me ei süvene siin detailidesse ega kommenteeri päringute kõiki parameetreid, kuna need on põhjalikult dokumenteeritud järgnevatel lehekülgedel. Siin me loome kiirelt uue üksuse ja lisame sinna uue töötaja. Seejärel loome selle töötaja nimel uue taotluse, lisame sellele faili ja saadame taotluse Rahvusarhiivi. Me pärime, mis olekus on taotluse menetlemine, ja kuvame taotluse detailvaate. Lõpuks pärime me taotluse vastuse. Kõige selle juures vaatame me paralleelselt, kuidas need tegevused kajastuvad veebirakenduse kasutajaliideses.
+{% endhint %}
+
+{% hint style="info" %}
+Siin ja edaspidi, kui räägitakse "veebirakendusest", peetakse silmas Rahvusarhiivi loodud ja Rahvusarhiivi domeenis asuvat rakendust https://www.ra.ee/eteatis/, mida Sotsiaalkindlustusameti töötajad on saanud kasutada alates 2013. aastast, et taotleda Rahvusarhiivilt e-arhiiviteatisi. Sellest rakendusest on pikemalt juttu sissejuhatuses.
 {% endhint %}
 
 ## Juurdepääsu taotlemine
 
 Käesolev API on üks moodul Rahvusarhiivi suuremast API-süsteemist. API kasutaja autentimine ja autoriseerimine toimub kõigi moodulite puhul ühtmoodi.&#x20;
 
-Kõigepealt tuleb luua konto Rahvusarhiivi virtuaalses uurimissaalis: [https://www.ra.ee/vautest/index.php/et/account/create](https://www.ra.ee/vautest/index.php/et/account/create).&#x20;
+Kõigepealt tuleb luua konto Rahvusarhiivi virtuaalses uurimissaalis:
+
+* testkeskkond: [https://www.ra.ee/vautest/index.php/et/account/create](https://www.ra.ee/vautest/index.php/et/account/create)
+* tootekeskkond: [https://www.ra.ee/vau/index.php/et/account/create](https://www.ra.ee/vautest/index.php/et/account/create)
 
 Seejärel tuleb saata API kasutamise taotlus e-kirjaga aadressil admin.vau@ra.ee. Kirjale tuleb lisada registreeritud kasutajanimi ja selgitus, millist API-moodulit ja milleks soovitakse kasutada. Selle kiirjuhendi jaoks registreerin ma kasutaja "erik" ja taotlen ligipääsu e-arhiiviteatise API-moodulile.&#x20;
 
 Kui Rahvusarhiivi administraator rahuldab mu taotluse ja annab kasutajale "erik" vastava õiguse, saan ma oma kasutajanime ja salasõna kasutades teha kõiki e-arhiiviteatise API päringuid.&#x20;
 
-Kui ma unustan oma salasõna, saan teha uue siin: [https://www.ra.ee/vautest/index.php/et/account/forgotPassword](https://www.ra.ee/vautest/index.php/et/account/forgotPassword)
+Kui ma unustan oma salasõna, saan teha uue siin:&#x20;
+
+* testkeskkond: [https://www.ra.ee/vautest/index.php/et/account/forgotPassword](https://www.ra.ee/vautest/index.php/et/account/forgotPassword)
+* tootekeskkond: [https://www.ra.ee/vau/index.php/et/account/forgotPassword](https://www.ra.ee/vautest/index.php/et/account/forgotPassword)
 
 ## Tokeni pärimine
 
@@ -33,7 +43,7 @@ curl --location --request POST '{{apiBaseUrl}}/api/user/verify' \
 ```
 
 {% hint style="info" %}
-See ja kõik järgnevad päringu näited on cUrl formaadis. Muutuja \{{apiBaseUrl\}} on käesoleva kiirjuhendi kontekstist https://www.ra.ee/vautest/index.php/. Tärnide asemel tuleb kasutada salasõna, mis registreeriti Rahvusarhiivi virtuaalses uurimissaalis ja mis on seotud kontoga, millele Rahvusarhiivi administraator andis API kasutamise eriõiguse.
+See ja kõik järgnevad päringu näited on cUrl formaadis. Muutuja \{{apiBaseUrl\}} väärtus sõltub sellest, kas kasutatakse test- või tootekeskkonda. Testkeskkonnas on see https://www.ra.ee/vautest/index.php, tootekeskkonnas https://www.ra.ee/vau/index.php. Kiirjuhendi näidetes kasutame me testkeskkonda. Tärnide asemel tuleb kasutada salasõna, mis registreeriti Rahvusarhiivi virtuaalses uurimissaalis ja mis on seotud kontoga, millele Rahvusarhiivi administraator andis API kasutamise eriõiguse.
 {% endhint %}
 
 Päringu vastuseks on JSON:
@@ -51,9 +61,9 @@ Päringu vastuseks on JSON:
 }
 ```
 
-## Osakonna loomine
+## Üksuse loomine
 
-Kasutades eelnevas vastuses saadud _token_it, käivitame päringu:
+Kasutades eelnevas vastuses saadud __ tokenit, käivitame päringu:
 
 ```shell
 curl --location --request POST '{{apiBaseUrl}}/api/ska/department/create?token=71e0d98f1ab52c225d655359190b6844' \
@@ -239,22 +249,158 @@ curl --location --request GET '{{apiBaseUrl}}/api/ska/application/status?token=7
 Päringu vastuseks on JSON:
 
 ```json
-// Some code
+{
+    "responseStatus": "ok",
+    "applicationStatus": {
+        "code": "SUBMITTED",
+        "text": "Saabunud",
+        "htmlMessage": null
+    }
+}
 ```
 
 ## Taotluse vaatamine
 
 Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
 
-```
-// Some code
+```shell
+curl --location --request GET '{{apiBaseUrl}}/api/ska/application/view?token=71e0d98f1ab52c225d655359190b6844&id=16610'
 ```
 
 Päringu vastuseks on JSON:
 
 ```json
-// Some code
+{
+    "responseStatus": "ok",
+    "applicationDetailView": {
+        "Taotluse esitaja andmed": {
+            "Eesnimi": "Erik",
+            "Perekonnanimi": "Uus",
+            "Isikukood": "37307302715",
+            "Sünnikuupäev": "30.07.1973",
+            "Aadress": "Tammsaare 8-25",
+            "Postiindeks": "51006",
+            "Telefon või mobiiltelefon": "+37253225388",
+            "E-posti aadress": "erik.uus@gmail.com",
+            "Nimemuutused ja erinevad nimekujud õppimise/töötamise ajal": "Uks, Uss",
+            "Teatise tellijaks ja riigilõivu tasujaks ei ole isik, vaid": "Test osakond"
+        },
+        "Taotluse sisu": {
+            "Õppimine": {
+                "Õppeasutused": [
+                    {
+                        "Õppeasutuse nimetus": "Nõo Keskkool",
+                        "Õppimise aeg (kuupäevaliselt)": "1980 - 1991",
+                        "Eriala": null
+                    },
+                    {
+                        "Õppeasutuse nimetus": "Tartu Ülikool",
+                        "Õppimise aeg (kuupäevaliselt)": "1991 - 1995",
+                        "Eriala": "usuteadus"
+                    }
+                ],
+                "Märkused, täiendused": "Märkused, täiendused"
+            },
+            "Töötamine": {
+                "Asutused": [
+                    {
+                        "Asutuse nimetus": "Rahvusarhiiv",
+                        "Töötamise aeg (kuupäevaliselt)": "2006 - 2022",
+                        "Eriala": "programmeerija"
+                    },
+                    {
+                        "Asutuse nimetus": "Babahh OÜ",
+                        "Töötamise aeg (kuupäevaliselt)": "2014 - 2018",
+                        "Eriala": "programmeerija"
+                    }
+                ],
+                "Õigus sooduspensionile, vajalike tingimuste kirjeldus": "Õigus sooduspensionile, vajalike tingimuste kirjeldus",
+                "Märkused, täiendused": "Märkused, täiendused"
+            },
+            "Talus töötamine": {
+                "Maakond, vald, talu nimi, aeg": "Maakond, vald, talu nimi, aeg"
+            },
+            "Sõjaväeteenistus": {
+                "Kirjeldus; Eesti Kaitseväes teenimise puhul märkida väeosa ja teenimise aeg, Saksa sõjaväes teenimise puhul kõik teadaolevad andmed": "Kirjeldus; Eesti Kaitseväes teenimise puhul märkida väeosa ja teenimise aeg, Saksa sõjaväes teenimise puhul kõik teadaolevad andmed"
+            },
+            "Viibimine nõukogude tagalas": {
+                "Kirjeldus; kellega koos tagalasse saadeti (andmed vanemate kohta) ja märkida kõik teadaolevad andmed": "Kirjeldus; kellega koos tagalasse saadeti (andmed vanemate kohta) ja märkida kõik teadaolevad andmed"
+            },
+            "Vangilaagris ja asumisel viibimine": {
+                "Kirjeldus; kellega koos laagrisse/asumisele saadeti (andmed vanemate kohta), millal ja kelle poolt karistatud, karistuse kandmise aeg ja koht, vabanemise aeg": "Kirjeldus; kellega koos laagrisse/asumisele saadeti (andmed vanemate kohta), millal ja kelle poolt karistatud, karistuse kandmise aeg ja koht, vabanemise aeg"
+            },
+            "Töölaagris, koonduslaagris või sõjavangilaagris viibimine": {
+                "Laagri nimetus, kinnipidamise ja vabastamise aeg": "Laagri nimetus, kinnipidamise ja vabastamise aeg"
+            },
+            "II maailmasõja ajal Eestisse toomine": {
+                "Kirjeldus; kellega koos toodi (andmed vanemate kohta), toomise aeg ja koht, laagrite nimed ja kinnipidamisaeg, kuhu suunati elama ja tööle": "Kirjeldus; kellega koos toodi (andmed vanemate kohta), toomise aeg ja koht, laagrite nimed ja kinnipidamisaeg, kuhu suunati elama ja tööle"
+            },
+            "II maailmasõja ajal Saksamaale saatmine": {
+                "Kirjeldus; kellega koos saadeti (andmed vanemate kohta), kust ja millal saadeti, laagrite nimed, töökohad Saksamaal, Eestisse naasmise aeg ja koht": "Kirjeldus; kellega koos saadeti (andmed vanemate kohta), kust ja millal saadeti, laagrite nimed, töökohad Saksamaal, Eestisse naasmise aeg ja koht"
+            },
+            "Muud märkused, täiendused": "Märkused, täiendused"
+        },
+        "Taotlusega seotud failid": [
+            {
+                "url": "https://www.ra.ee/apps/eteatistest/index.php/file/download?code=yD0FmubzIzi8BAj8",
+                "filename": "test.jpg",
+                "filesize": "11 KB",
+                "creator": "Erik Uus",
+                "modified": "17.08.2022 13:12"
+            }
+        ],
+        "Taotluse esitaja soovid ja eelistused": {
+            "Soovin arhiivilt teadet riigilõivu tasumise kohta": "E-postiga",
+            "Soovin koopiat arhiiviteatisest": "E-postiga"
+        },
+        "Üksus, kuhu arhiiviteatis edastatakse": {
+            "Nimi": "Test osakond",
+            "Aadress": "Tammsaare 8-25, Tartu",
+            "E-post": "erik.uus@ra.ee",
+            "Telefon": "+372 5322 5388"
+        },
+        "Vormi täitnud töötaja andmed": {
+            "Eesnimi": "Erik",
+            "Perekonnanimi": "Uus",
+            "Telefon": "+372 5322 5388"
+        },
+        "Taotluse andmed": {
+            "Koostatud": "17.08.2022 13:04",
+            "Saadetud": "18.08.2022 10:12"
+        }
+    }
+}
 ```
 
-Veebirakenduses näeb taotlus välja nii:
+Veebirakenduses näeb saadetud taotlus välja nii:
 
+![](<.gitbook/assets/E-arhiiviteatis-Vaata-taotlust (2) (1).png>)
+
+## Vastuse pärimine
+
+Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
+
+```shell
+curl --location --request GET '{{apiBaseUrl}}/api/ska/application/result?token=71e0d98f1ab52c225d655359190b6844&id=16610'
+```
+
+Päringu vastuseks on JSON:
+
+```json
+{
+    "responseStatus": "ok",
+    "resultFiles": [
+        {
+            "url": "https://www.ra.ee/vautest/upload/enquiry/2022/08/00c95808-20a2-4986-5a7f-066cb87c6bb1/erik-uus-eteatis.asice",
+            "filename": "erik-uus-eteatis.asice",
+            "filesize": "199 KB",
+            "creator": "Erik Uus",
+            "modified": "18.08.2022 11:42"
+        }
+    ]
+}
+```
+
+{% hint style="info" %}
+Sellise vastuse eelduseks on, et Rahvusarhiiv on taotluse lõpuni menetlenud: taotleja on tasunud riigilõivu ja Rahvusarhiiv koostanud e-arhiiviteatise.&#x20;
+{% endhint %}
