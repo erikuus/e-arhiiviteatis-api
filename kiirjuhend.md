@@ -12,23 +12,19 @@ See kiirjuhend seletab näidete varal API põhilisi funktsioone. Me ei süvene s
 Siin ja edaspidi, kui räägitakse "veebirakendusest", peetakse silmas Rahvusarhiivi loodud ja Rahvusarhiivi domeenis asuvat rakendust https://www.ra.ee/eteatis/, mida Sotsiaalkindlustusameti töötajad on saanud kasutada alates 2013. aastast, et taotleda Rahvusarhiivilt e-arhiiviteatisi. Sellest rakendusest on pikemalt juttu sissejuhatuses.
 {% endhint %}
 
-## Juurdepääsu taotlemine
+## Ettevalmistus
 
-Käesolev API on üks moodul Rahvusarhiivi suuremast API-süsteemist. API kasutaja autentimine ja autoriseerimine toimub kõigi moodulite puhul ühtmoodi.&#x20;
+Alustamiseks peab esiteks omama Rahvusarhiivi kasutajakontot, millele administraator on andnud õiguse kasutada e-arhiiviteatise API-moodulit. Teiseks peab teadma muutuja \{{apiBaseUrl\}} väärtust ehk API juuraadressi. &#x20;
 
-Kõigepealt tuleb luua konto Rahvusarhiivi virtuaalses uurimissaalis:
+{% content-ref url="juurdepaeaes.md" %}
+[juurdepaeaes.md](juurdepaeaes.md)
+{% endcontent-ref %}
 
-* testkeskkond: [https://www.ra.ee/vautest/index.php/et/account/create](https://www.ra.ee/vautest/index.php/et/account/create)
-* tootekeskkond: [https://www.ra.ee/vau/index.php/et/account/create](https://www.ra.ee/vautest/index.php/et/account/create)
+{% content-ref url="juuraadress.md" %}
+[juuraadress.md](juuraadress.md)
+{% endcontent-ref %}
 
-Seejärel tuleb saata API kasutamise taotlus e-kirjaga aadressil admin.vau@ra.ee. Kirjale tuleb lisada registreeritud kasutajanimi ja selgitus, millist API-moodulit ja milleks soovitakse kasutada. Selle kiirjuhendi jaoks registreerin ma kasutaja "erik" ja taotlen ligipääsu e-arhiiviteatise API-moodulile.&#x20;
-
-Kui Rahvusarhiivi administraator rahuldab mu taotluse ja annab kasutajale "erik" vastava õiguse, saan ma oma kasutajanime ja salasõna kasutades teha kõiki e-arhiiviteatise API päringuid.&#x20;
-
-Kui ma unustan oma salasõna, saan teha uue siin:&#x20;
-
-* testkeskkond: [https://www.ra.ee/vautest/index.php/et/account/forgotPassword](https://www.ra.ee/vautest/index.php/et/account/forgotPassword)
-* tootekeskkond: [https://www.ra.ee/vau/index.php/et/account/forgotPassword](https://www.ra.ee/vautest/index.php/et/account/forgotPassword)
+Selles kiirjuhendis on kasutatud kontot, mille kasutajanimi on "erik" ja API testkeskkonda, mille juuraadess on "https://www.ra.ee/vautest/index.php".
 
 ## Tokeni pärimine
 
@@ -43,7 +39,7 @@ curl --location --request POST '{{apiBaseUrl}}/api/user/verify' \
 ```
 
 {% hint style="info" %}
-See ja kõik järgnevad päringu näited on cUrl formaadis. Muutuja \{{apiBaseUrl\}} väärtus sõltub sellest, kas kasutatakse test- või tootekeskkonda. Testkeskkonnas on see https://www.ra.ee/vautest/index.php, tootekeskkonnas https://www.ra.ee/vau/index.php. Kiirjuhendi näidetes kasutame me testkeskkonda. Tärnide asemel tuleb kasutada salasõna, mis registreeriti Rahvusarhiivi virtuaalses uurimissaalis ja mis on seotud kontoga, millele Rahvusarhiivi administraator andis API kasutamise eriõiguse.
+See ja kõik järgnevad päringu näited on cUrl formaadis.
 {% endhint %}
 
 Päringu vastuseks on JSON:
@@ -189,7 +185,7 @@ Päringu vastuseks on JSON:
 
 Veebirakenduse näeb loodud taotlus välja nii:
 
-![](<.gitbook/assets/E-arhiiviteatis-Vaata-taotlust (2).png>)
+![](<.gitbook/assets/E-arhiiviteatis-Vaata-taotlust (2) (1).png>)
 
 ## Faili lisamine
 
@@ -374,7 +370,7 @@ Päringu vastuseks on JSON:
 
 Veebirakenduses näeb saadetud taotlus välja nii:
 
-![](<.gitbook/assets/E-arhiiviteatis-Vaata-taotlust (2) (1).png>)
+![](<.gitbook/assets/E-arhiiviteatis-Vaata-taotlust (2).png>)
 
 ## Vastuse pärimine
 
