@@ -16,8 +16,8 @@ Siin ja edaspidi, kui räägitakse "veebirakendusest", peetakse silmas Rahvusarh
 
 Alustamiseks peab esiteks omama Rahvusarhiivi kasutajakontot, millele administraator on andnud õiguse kasutada e-arhiiviteatise API-moodulit. Teiseks peab teadma muutuja \{{apiBaseUrl\}} väärtust ehk API juuraadressi. &#x20;
 
-{% content-ref url="juurdepaeaes.md" %}
-[juurdepaeaes.md](juurdepaeaes.md)
+{% content-ref url="juurdepaeaesutaotlus.md" %}
+[juurdepaeaesutaotlus.md](juurdepaeaesutaotlus.md)
 {% endcontent-ref %}
 
 {% content-ref url="juuraadress.md" %}

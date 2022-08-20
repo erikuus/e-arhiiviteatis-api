@@ -2,11 +2,11 @@
 description: Kuidas saada juurdepääs sellele API-le?
 ---
 
-# Juurdepääs
+# Juurdepääsutaotlus
 
 Käesolev e-arhiiviteatise taotlemise API on üks moodul Rahvusarhiivi suuremast API-süsteemist. Kõikide moodulite kasutamise eelduseks on Rahvusarhiivi kasutajakonto.
 
-Niisiis kõigepealt tuleb luua konto Rahvusarhiivi kliendiportaalis:
+Niisiis kõigepealt tuleb luua konto VAU-s ehk Rahvusarhiivi virtuaalses uurimissaalis:
 
 * testkeskkond: [https://www.ra.ee/vautest/index.php/et/account/create](https://www.ra.ee/vautest/index.php/et/account/create)
 * tootekeskkond: [https://www.ra.ee/vau/index.php/et/account/create](https://www.ra.ee/vautest/index.php/et/account/create)
