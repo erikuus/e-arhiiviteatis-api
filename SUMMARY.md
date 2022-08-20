@@ -9,7 +9,6 @@
 ## PÄRINGUD
 
 * [Kasutaja](paeringud/kasutaja.md)
-  * [user/verify](paeringud/kasutaja/user-verify.md)
 * [Taotlus](paeringud/taotlus.md)
 * [Üksus](paeringud/ueksus.md)
 * [Töötaja](paeringud/toeoetaja.md)
