@@ -14,15 +14,13 @@ _token_
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="username" type="String" required="true" %}
-VAU-s registreeritud kasutajanimi 
+VAU-s registreeritud kasutajanimi&#x20;
+
+VAU kohta loe siit [juurdepaeaesutaotlus.md](../juurdepaeaesutaotlus.md "mention")
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" type="String" name="password" required="true" %}
 VAU-s registreeritud salasõna
-
-
-
-_VAU kohta loe siit_ [juurdepaeaesutaotlus.md](../juurdepaeaesutaotlus.md "mention")
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="OK" %}
@@ -40,7 +38,7 @@ _VAU kohta loe siit_ [juurdepaeaesutaotlus.md](../juurdepaeaesutaotlus.md "menti
 ```
 {% endswagger-response %}
 
-{% swagger-response status="200: OK" description="Viga 1010" %}
+{% swagger-response status="200: OK" description="error 1010" %}
 ```javascript
 {
     "responseStatus": "error",
@@ -50,7 +48,7 @@ _VAU kohta loe siit_ [juurdepaeaesutaotlus.md](../juurdepaeaesutaotlus.md "menti
 ```
 {% endswagger-response %}
 
-{% swagger-response status="200: OK" description="Viga 1011" %}
+{% swagger-response status="200: OK" description="error 1011" %}
 ```javascript
 {
     "responseStatus": "error",

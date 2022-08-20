@@ -4,7 +4,7 @@ description: Mis on API juurdepääsukood? Kuidas seda saada? Kui kaua see kehti
 
 # Juurdepääsukood
 
-Kõigile API päringutele tuleb ühe parameetrina lisada juurde ajutiselt kehtiv juurdepääsukood ehk _access token_. Näiteks:
+Kõigile API päringutele tuleb ühe parameetrina lisada ajutiselt kehtiv juurdepääsukood ehk _access token_. Näiteks:
 
 ```
 {{apiBaseUrl}}/ska/application/view?token=71e0d98f1ab52c225d655359190b6844&id=16610
@@ -14,13 +14,11 @@ kus _token_ on _"_71e0d98f1ab52c225d655359190b6844".
 
 _Tokeni_ väljastab päring, mis kontrollib kasutajanime ja salasõna järgi, kas kasutaja on olemas.
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="paeringud/kasutaja.md" %}
+[kasutaja.md](paeringud/kasutaja.md)
 {% endcontent-ref %}
 
-### Vastus
-
-Eelnimetatud päringu vastus näitab ka seda, kui kaua token kehtib. Näiteks:
+Eelviidatud päringu vastus näitab ka seda, kui kaua token kehtib. Näiteks:
 
 ```json
 {
@@ -39,7 +37,7 @@ Eelnimetatud päringu vastus näitab ka seda, kui kaua token kehtib. Näiteks:
 
 _Tokeni_ kasutamisel päringutes võivad esineda järgmised vead.&#x20;
 
-### **Viga 2010**
+### **error 2010**
 
 _Kui token_ on aegunud või sellist tokenit andmebaasis ei eksisteeri, on päringu vastus:
 
@@ -51,9 +49,9 @@ _Kui token_ on aegunud või sellist tokenit andmebaasis ei eksisteeri, on pärin
 }
 ```
 
-Sellisel juhul tuleb lihtsalt pärida uus _token_ [Broken link](broken-reference "mention").
+Sellisel juhul tuleb lihtsalt pärida uus _token._
 
-### **Viga 2011**
+### **error 2011**
 
 Kui andmebaasis puudub info selle kohta, millisele kasutajale token kuulub, vastab päring:
 
@@ -67,7 +65,7 @@ Kui andmebaasis puudub info selle kohta, millisele kasutajale token kuulub, vast
 
 See on API viga, mida ideaalis ei tohiks kunagi juhtuda.
 
-### Viga 2012
+### error 2012
 
 Kui token on olemas ja kehtib, aga see kuulub kasutajale, kellel puudub käesoleva API-mooduli kasutusõigus, on päringu vastus:
 
@@ -82,7 +80,7 @@ Kui token on olemas ja kehtib, aga see kuulub kasutajale, kellel puudub käesole
 
 Sellisel juhul tuleb esitada [juurdepaeaesutaotlus.md](juurdepaeaesutaotlus.md "mention")
 
-### Viga 2013
+### error 2013
 
 Kui päringule ei ole lisatud _tokenit_, vastab päring:
 
@@ -94,4 +92,4 @@ Kui päringule ei ole lisatud _tokenit_, vastab päring:
 }
 ```
 
-Sellisel juhul tuleb pärida _token_ [Broken link](broken-reference "mention") __ ja lisada see __ päringule_._
+Sellisel juhul tuleb pärida _token_ ja lisada see __ päringule_._
