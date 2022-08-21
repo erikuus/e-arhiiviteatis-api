@@ -10,6 +10,6 @@
 
 * [Kasutaja](paeringud/kasutaja.md)
 * [Taotlus](paeringud/taotlus.md)
-* [Üksus](paeringud/ueksus.md)
+* [Manus](paeringud/manus.md)
 * [Töötaja](paeringud/toeoetaja.md)
-* [Fail](paeringud/fail.md)
+* [Üksus](paeringud/ueksus.md)

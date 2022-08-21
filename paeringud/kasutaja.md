@@ -4,7 +4,7 @@ description: Päringute dokumentatsioon
 
 # Kasutaja
 
-{% swagger method="post" path="" baseUrl="{{apiBaseUrl}}/user/verify" summary="Kasutaja kontrollimine ja tokeni väljastamine" %}
+{% swagger method="post" path="/user/verify" baseUrl="{{apiBaseUrl}}" summary="Juurdepääsukoodi pärimine" %}
 {% swagger-description %}
 Kõigile päringutele tuleb ühe parameetrina lisada juurde ajutiselt kehtiv juurdepääsukood ehk 
 
