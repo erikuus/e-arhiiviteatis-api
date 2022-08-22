@@ -2,7 +2,7 @@
 description: Päringu dokumentatsioon
 ---
 
-# Kättesaadavuse testimine
+# Testimine
 
 ## <mark style="color:green;">GET</mark> ska/department/test
 
@@ -24,7 +24,7 @@ Testib, kas üksust puudutav päringute grupp on kättesaadav. Normaaljuhul pole
 
 {% code overflow="wrap" %}
 ```shell
-curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/department/test?token=bd266e2a556dc5331917d86252262c30'
+curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/department/test?token=bd266e2a556dc5331917d86252262c30' \
 ```
 {% endcode %}
 
@@ -38,7 +38,7 @@ Päringute grupp on kättesaadav.
 }
 ```
 
-### Veateated
+### Veateade
 
 Päringute grupp ei ole serveri sisemise vea tõttu kättesaadav.
 

@@ -25,6 +25,10 @@ Samuti tuleb iga töötaja puhul määrata, millisesse üksusesse ta kuulub.
 
 ## Päringud
 
-{% content-ref url="kaettesaadavuse-testimine.md" %}
-[kaettesaadavuse-testimine.md](kaettesaadavuse-testimine.md)
+{% content-ref url="testimine.md" %}
+[testimine.md](testimine.md)
+{% endcontent-ref %}
+
+{% content-ref url="ueksuse-loomine.md" %}
+[ueksuse-loomine.md](ueksuse-loomine.md)
 {% endcontent-ref %}

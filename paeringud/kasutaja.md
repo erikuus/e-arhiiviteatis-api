@@ -12,7 +12,7 @@ description: Päringute dokumentatsioon
 
 Kõigile päringutele tuleb ühe parameetrina lisada juurde ajutiselt kehtiv juurdepääsukood ehk token. Tokeni väljastab päring, mis kontrollib kasutajanime ja salasõna järgi, kas kasutaja on olemas.
 
-### Parameetrid (body form-data)
+### Sisend (body form-data)
 
 \*-ga märgitud on kohustuslikud
 

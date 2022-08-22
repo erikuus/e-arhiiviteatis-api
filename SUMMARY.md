@@ -13,5 +13,5 @@
 * [Manus](paeringud/manus.md)
 * [Töötaja](paeringud/toeoetaja.md)
 * [Üksus](paeringud/ueksus/README.md)
-  * [Kättesaadavuse testimine](paeringud/ueksus/kaettesaadavuse-testimine.md)
-  * [Uue üksuse loomine](paeringud/ueksus/uue-ueksuse-loomine.md)
+  * [Testimine](paeringud/ueksus/testimine.md)
+  * [Üksuse loomine](paeringud/ueksus/ueksuse-loomine.md)
