@@ -4,26 +4,39 @@ description: Päringute dokumentatsioon
 
 # Kasutaja
 
-{% swagger method="post" path="/user/verify" baseUrl="{{apiBaseUrl}}" summary="Juurdepääsukoodi pärimine" %}
-{% swagger-description %}
-Kõigile päringutele tuleb ühe parameetrina lisada juurde ajutiselt kehtiv juurdepääsukood ehk 
+## <mark style="color:orange;">POST</mark> user/verify
 
-_token_
+```
+{{apiBaseUrl}}/user/verify
+```
 
-. Tokeni väljastab päring, mis kontrollib kasutajanime ja salasõna järgi, kas kasutaja on olemas.
-{% endswagger-description %}
+Kõigile päringutele tuleb ühe parameetrina lisada juurde ajutiselt kehtiv juurdepääsukood ehk token. Tokeni väljastab päring, mis kontrollib kasutajanime ja salasõna järgi, kas kasutaja on olemas.
 
-{% swagger-parameter in="body" name="username" type="String" required="true" %}
-VAU-s registreeritud kasutajanimi&#x20;
+### Parameetrid (body form-data)
 
-VAU kohta loe siit [juurdepaeaesutaotlus.md](../juurdepaeaesutaotlus.md "mention")
-{% endswagger-parameter %}
+\*-ga märgitud on kohustuslikud
 
-{% swagger-parameter in="body" type="String" name="password" required="true" %}
-VAU-s registreeritud salasõna
-{% endswagger-parameter %}
+| NIMI        | TÜÜP   | SELGITUS                                   |   |
+| ----------- | ------ | ------------------------------------------ | - |
+| username \* | String | Rahvusarhiivis registreeritud kasutajanimi |   |
+| password \* | String | Rahvusarhiivis registreeritud salasõna     |   |
 
-{% swagger-response status="200: OK" description="OK" %}
+Kasutajanime ja salasõna saamise kohta vaata [juurdepaeaesutaotlus.md](../juurdepaeaesutaotlus.md "mention")
+
+### Päringu näide (cUrl)
+
+{% code overflow="wrap" %}
+```shell
+curl --location --request POST 'https://www.ra.ee/vau/index.php/api/user/verify' \
+--form 'username="erik"' \
+--form 'password="******"'
+```
+{% endcode %}
+
+### Vastuse näide
+
+Kasutaja autentimine õnnestub ja väljastatakse ajutine [juurdepaeaesukood.md](../juurdepaeaesukood.md "mention")
+
 ```json
 {
     "responseStatus": "ok",
@@ -36,20 +49,44 @@ VAU-s registreeritud salasõna
     "requestUnixTime": 1660032944
 }
 ```
-{% endswagger-response %}
 
-{% swagger-response status="200: OK" description="error 1010" %}
-```javascript
+{% hint style="info" %}
+Seda tuleb mõista nii, et token "c7234cb8fd247d668062c55a6b1c4be2" kehtib 3600 sekundit alates päringu esitamise hetkest, mille UNIX ajatempel on 1660032944.
+{% endhint %}
+
+### Veateated
+
+**error 1010** - vale meetod
+
+```json
 {
     "responseStatus": "error",
     "errorCode": 1010,
     "errorMessage": "Is not POST request"
 }
 ```
-{% endswagger-response %}
 
-{% swagger-response status="200: OK" description="error 1011" %}
-```javascript
+**error 1011** - kohustuslikud väljad täitmata
+
+```json
+{
+    "responseStatus": "error",
+    "errorCode": 1011,
+    "errorMessage": "Could not verify user",
+    "errors": {
+        "username": [
+            "Kasutajanimi ei tohi olla tühi."
+        ],
+        "password": [
+            "Salasõna ei tohi olla tühi."
+        ]
+    }
+}
+```
+
+**error 1011** - vale salasõna
+
+```json
 {
     "responseStatus": "error",
     "errorCode": 1011,
@@ -61,5 +98,7 @@ VAU-s registreeritud salasõna
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+
+{% hint style="info" %}
+Pane tähele, et neis näidetes "responseStatus" on "error", aga vastuse "HTTP response status code" on "200 __ OK".&#x20;
+{% endhint %}

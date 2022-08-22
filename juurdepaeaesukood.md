@@ -39,7 +39,7 @@ _Tokeni_ kasutamisel päringutes võivad esineda järgmised vead.&#x20;
 
 ### **error 2010**
 
-_Kui token_ on aegunud või sellist tokenit andmebaasis ei eksisteeri, on päringu vastus:
+_Kui token_ on aegunud või sellist _tokenit_ andmebaasis ei eksisteeri, on päringu vastus:
 
 ```json
 {
@@ -53,7 +53,7 @@ Sellisel juhul tuleb lihtsalt pärida uus _token._
 
 ### **error 2011**
 
-Kui andmebaasis puudub info selle kohta, millisele kasutajale token kuulub, vastab päring:
+Kui andmebaasis puudub info selle kohta, millisele kasutajale _token_ kuulub, vastab päring:
 
 ```json
 {
@@ -67,7 +67,7 @@ See on API viga, mida ideaalis ei tohiks kunagi juhtuda.
 
 ### error 2012
 
-Kui token on olemas ja kehtib, aga see kuulub kasutajale, kellel puudub käesoleva API-mooduli kasutusõigus, on päringu vastus:
+Kui _token_ on olemas ja kehtib, aga see kuulub kasutajale, kellel puudub käesoleva API-mooduli kasutusõigus, on päringu vastus:
 
 ```json
 {

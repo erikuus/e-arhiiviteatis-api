@@ -12,4 +12,6 @@
 * [Taotlus](paeringud/taotlus.md)
 * [Manus](paeringud/manus.md)
 * [Töötaja](paeringud/toeoetaja.md)
-* [Üksus](paeringud/ueksus.md)
+* [Üksus](paeringud/ueksus/README.md)
+  * [Kättesaadavuse testimine](paeringud/ueksus/kaettesaadavuse-testimine.md)
+  * [Uue üksuse loomine](paeringud/ueksus/uue-ueksuse-loomine.md)

@@ -61,6 +61,7 @@ Päringu vastuseks on JSON:
 
 Kasutades eelnevas vastuses saadud __ tokenit, käivitame päringu:
 
+{% code overflow="wrap" %}
 ```shell
 curl --location --request POST '{{apiBaseUrl}}/ska/department/create?token=71e0d98f1ab52c225d655359190b6844' \
 --data-raw '{
@@ -71,6 +72,7 @@ curl --location --request POST '{{apiBaseUrl}}/ska/department/create?token=71e0d
     "phone": "+372 5322 5388"
 }'
 ```
+{% endcode %}
 
 Päringu vastuseks on JSON:
 
@@ -89,6 +91,7 @@ Veebirakenduse näeb loodud osakond välja nii:
 
 Kasutades eelnevatest vastustest saadud andmeid (token, departmentId), käivitame päringu:
 
+{% code overflow="wrap" %}
 ```shell
 curl --location --request POST '{{apiBaseUrl}}/ska/employee/create?token=71e0d98f1ab52c225d655359190b6844' \
 --data-raw '{
@@ -99,6 +102,7 @@ curl --location --request POST '{{apiBaseUrl}}/ska/employee/create?token=71e0d98
     "department_id": 36
 }'
 ```
+{% endcode %}
 
 Päringu vastuseks on JSON:
 
@@ -217,9 +221,11 @@ Veebirakenduses näeb lisatud fail välja nii:
 
 Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
 
+{% code overflow="wrap" %}
 ```shell
 curl --location --request PUT '{{apiBaseUrl}}/ska/application/send?token=71e0d98f1ab52c225d655359190b6844&id=16610'
 ```
+{% endcode %}
 
 Päringu vastuseks on JSON:
 
@@ -237,9 +243,11 @@ Taotlus ilmub Rahvusarhiivi arhiivipäringute haldamise moodulisse:
 
 Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
 
+{% code overflow="wrap" %}
 ```shell
 curl --location --request GET '{{apiBaseUrl}}/ska/application/status?token=71e0d98f1ab52c225d655359190b6844&id=16610'
 ```
+{% endcode %}
 
 Päringu vastuseks on JSON:
 
@@ -258,9 +266,11 @@ Päringu vastuseks on JSON:
 
 Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
 
+{% code overflow="wrap" %}
 ```shell
 curl --location --request GET '{{apiBaseUrl}}/ska/application/view?token=71e0d98f1ab52c225d655359190b6844&id=16610'
 ```
+{% endcode %}
 
 Päringu vastuseks on JSON:
 
@@ -375,9 +385,11 @@ Veebirakenduses näeb saadetud taotlus välja nii:
 
 Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
 
+{% code overflow="wrap" %}
 ```shell
 curl --location --request GET '{{apiBaseUrl}}/ska/application/result?token=71e0d98f1ab52c225d655359190b6844&id=16610'
 ```
+{% endcode %}
 
 Päringu vastuseks on JSON:
 
