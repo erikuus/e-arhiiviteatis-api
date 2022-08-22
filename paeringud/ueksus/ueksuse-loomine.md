@@ -10,7 +10,7 @@ description: Päringu dokumentatsioon
 {{apiBaseUrl}}/ska/department/create?token={{accessToken}}
 ```
 
-Loob uue üksuse ja tagastab selle identifikaatori, mida saab kasutada uue taotluse ja töötaja loomisel või olemasoleva taotluse ja töötaja muutmisel.
+Loob uue üksuse ja tagastab selle identifikaatori.
 
 ### Parameetrid (query params)
 
@@ -89,7 +89,7 @@ Uue üksuse loomine õnnestub ja tagastatakse loodud üksuse identifikaator.
 }
 ```
 
-**error 1011** - vale meetod
+**error 4052** - vale meetod
 
 ```json
 {
