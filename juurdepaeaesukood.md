@@ -4,6 +4,8 @@ description: Mis on API juurdepääsukood? Kuidas seda saada? Kui kaua see kehti
 
 # Juurdepääsukood
 
+## Mis see on?
+
 Kõigile API päringutele tuleb ühe parameetrina lisada ajutiselt kehtiv juurdepääsukood ehk _access token_. Näiteks:
 
 ```
@@ -12,11 +14,11 @@ Kõigile API päringutele tuleb ühe parameetrina lisada ajutiselt kehtiv juurde
 
 kus _token_ on _"_71e0d98f1ab52c225d655359190b6844".
 
-_Tokeni_ väljastab päring, mis kontrollib kasutajanime ja salasõna järgi, kas kasutaja on olemas.
+## Kuidas seda saada?
 
-{% content-ref url="paeringud/kasutaja.md" %}
-[kasutaja.md](paeringud/kasutaja.md)
-{% endcontent-ref %}
+_Tokeni_ väljastab päring [`user/verify`](paeringud/kasutaja.md), mis kontrollib kasutajanime ja salasõna järgi, kas kasutaja on olemas. ****&#x20;
+
+## Kui kaua see kehtib?
 
 Eelviidatud päringu vastus näitab ka seda, kui kaua token kehtib. Näiteks:
 
@@ -35,11 +37,11 @@ Eelviidatud päringu vastus näitab ka seda, kui kaua token kehtib. Näiteks:
 
 ütleb, et _token_ "71e0d98f1ab52c225d655359190b6844" kehtib 3600 sekundit alates päringu esitamise hetkest, mille UNIX ajatempel on 1660724872.
 
-_Tokeni_ kasutamisel päringutes võivad esineda järgmised vead.&#x20;
+## **Veateated**&#x20;
 
-### **error 2010**
+_Tokeni_ kasutamisel päringutes võivad esineda järgmised vead.
 
-_Kui token_ on aegunud või sellist _tokenit_ andmebaasis ei eksisteeri, on päringu vastus:
+**error 2010** - **** _token_ on aegunud või sellist tokenit andmebaasis ei eksisteeri
 
 ```json
 {
@@ -49,11 +51,11 @@ _Kui token_ on aegunud või sellist _tokenit_ andmebaasis ei eksisteeri, on pär
 }
 ```
 
+{% hint style="info" %}
 Sellisel juhul tuleb lihtsalt pärida uus _token._
+{% endhint %}
 
-### **error 2011**
-
-Kui andmebaasis puudub info selle kohta, millisele kasutajale _token_ kuulub, vastab päring:
+**error 2011** - andmebaasis puudub info selle kohta, millisele kasutajale _token_ kuulub
 
 ```json
 {
@@ -63,11 +65,11 @@ Kui andmebaasis puudub info selle kohta, millisele kasutajale _token_ kuulub, va
 }
 ```
 
+{% hint style="info" %}
 See on API viga, mida ideaalis ei tohiks kunagi juhtuda.
+{% endhint %}
 
-### error 2012
-
-Kui _token_ on olemas ja kehtib, aga see kuulub kasutajale, kellel puudub käesoleva API-mooduli kasutusõigus, on päringu vastus:
+**error 2012** - _token_ on olemas ja kehtib, aga see kuulub kasutajale, kellel puudub käesoleva API-mooduli kasutusõigus
 
 ```json
 {
@@ -78,11 +80,11 @@ Kui _token_ on olemas ja kehtib, aga see kuulub kasutajale, kellel puudub käeso
 }
 ```
 
+{% hint style="info" %}
 Sellisel juhul tuleb esitada [juurdepaeaesutaotlus.md](juurdepaeaesutaotlus.md "mention")
+{% endhint %}
 
-### error 2013
-
-Kui päringule ei ole lisatud _tokenit_, vastab päring:
+**error 2013** - päringule ei ole lisatud _tokenit_
 
 ```json
 {
@@ -92,4 +94,6 @@ Kui päringule ei ole lisatud _tokenit_, vastab päring:
 }
 ```
 
-Sellisel juhul tuleb pärida _token_ ja lisada see __ päringule_._
+{% hint style="info" %}
+Sellisel juhul tuleb pärida _token_ ja lisada see päringule.
+{% endhint %}

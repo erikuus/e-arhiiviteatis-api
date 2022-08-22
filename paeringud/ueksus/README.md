@@ -4,20 +4,12 @@ description: Päringute dokumentatsioon
 
 # Üksus
 
-E-arhiiviteatise taotlusel tuleb kahes kohas määrata Sotsiaalkindlustusameti üksus:
+E-arhiiviteatise **** taotlusel **** tuleb kahes kohas määrata Sotsiaalkindlustusameti üksus:
 
 * Juhul kui teatise tellijaks ja riigilõivu tasujaks ei ole isik, vaid Sotsiaalkindlustusameti üksus, tuleb taotlust luues määrata, milline üksus.
 * Iga taotluse puhul tuleb määrata üksus, kuhu arhiiviteatis meilitsi edastatakse.
 
-{% content-ref url="../taotlus.md" %}
-[taotlus.md](../taotlus.md)
-{% endcontent-ref %}
-
 Samuti tuleb iga töötaja puhul määrata, millisesse üksusesse ta kuulub.
-
-{% content-ref url="../toeoetaja.md" %}
-[toeoetaja.md](../toeoetaja.md)
-{% endcontent-ref %}
 
 **Veebirakenduse ekraanivaated**
 
@@ -31,4 +23,24 @@ Samuti tuleb iga töötaja puhul määrata, millisesse üksusesse ta kuulub.
 
 {% content-ref url="ueksuse-loomine.md" %}
 [ueksuse-loomine.md](ueksuse-loomine.md)
+{% endcontent-ref %}
+
+{% content-ref url="ueksuse-muutmine.md" %}
+[ueksuse-muutmine.md](ueksuse-muutmine.md)
+{% endcontent-ref %}
+
+{% content-ref url="ueksuse-vaatamine.md" %}
+[ueksuse-vaatamine.md](ueksuse-vaatamine.md)
+{% endcontent-ref %}
+
+{% content-ref url="ueksuste-sirvimine.md" %}
+[ueksuste-sirvimine.md](ueksuste-sirvimine.md)
+{% endcontent-ref %}
+
+{% content-ref url="ueksuse-otsimine.md" %}
+[ueksuse-otsimine.md](ueksuse-otsimine.md)
+{% endcontent-ref %}
+
+{% content-ref url="ueksuse-kustutamine.md" %}
+[ueksuse-kustutamine.md](ueksuse-kustutamine.md)
 {% endcontent-ref %}

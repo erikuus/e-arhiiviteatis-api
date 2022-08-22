@@ -5,7 +5,7 @@ description: Konkreetsed näited, kuidas kasutada API põhifunktsioone
 # Kiirjuhend
 
 {% hint style="info" %}
-See kiirjuhend seletab näidete varal API põhilisi funktsioone. Me ei süvene siin detailidesse ega kommenteeri päringute kõiki parameetreid, kuna need on põhjalikult dokumenteeritud järgnevatel lehekülgedel. Siin me loome kiirelt uue üksuse ja lisame sinna uue töötaja. Seejärel loome selle töötaja nimel uue taotluse, lisame sellele faili ja saadame taotluse Rahvusarhiivi. Me pärime, mis olekus on taotluse menetlemine, ja kuvame taotluse detailvaate. Lõpuks pärime me taotluse vastuse. Kõige selle juures vaatame me paralleelselt, kuidas need tegevused kajastuvad veebirakenduse kasutajaliideses.
+See kiirjuhend seletab näidete varal API põhilisi funktsioone. Me ei süvene siin detailidesse ega kommenteeri päringute kõiki parameetreid, kuna need on põhjalikult dokumenteeritud järgnevatel lehekülgedel. Siin me loome kiirelt uue üksuse ja lisame sinna uue töötaja. Seejärel loome selle töötaja nimel uue taotluse, lisame sellele faili ja saadame taotluse Rahvusarhiivi. Me pärime, mis olekus on taotluse menetlemine, ja küsime taotluse detailvaate. Lõpuks pärime me taotluse vastuse. Kõige selle juures vaatame me paralleelselt, kuidas need tegevused kajastuvad veebirakenduse kasutajaliideses.
 {% endhint %}
 
 {% hint style="info" %}
@@ -59,7 +59,7 @@ Päringu vastuseks on JSON:
 
 ## Üksuse loomine
 
-Kasutades eelnevas vastuses saadud __ tokenit, käivitame päringu:
+Kasutades eelnevas vastuses saadud _tokenit_, käivitame päringu:
 
 {% code overflow="wrap" %}
 ```shell
@@ -89,7 +89,7 @@ Veebirakenduse näeb loodud osakond välja nii:
 
 ## Töötaja loomine
 
-Kasutades eelnevatest vastustest saadud andmeid (token, departmentId), käivitame päringu:
+Kasutades eelnevatest vastustest saadud andmeid (_token, departmentId_), käivitame päringu:
 
 {% code overflow="wrap" %}
 ```shell
@@ -119,7 +119,7 @@ Veebirakenduse näeb loodud töötaja välja nii:
 
 ## Taotluse loomine
 
-Kasutades eelnevatest vastustest saadud andmeid (token, employeeId, departmentId), käivitame päringu:
+Kasutades eelnevatest vastustest saadud andmeid (_token, employeeId, departmentId_), käivitame päringu:
 
 ```shell
 curl --location --request POST '{{apiBaseUrl}}/ska/application/create?token=71e0d98f1ab52c225d655359190b6844' \
@@ -178,6 +178,10 @@ curl --location --request POST '{{apiBaseUrl}}/ska/application/create?token=71e0
 }'
 ```
 
+{% hint style="info" %}
+Pane tähele, et selles näites on mitmete väljade väärtuseks pandud väljade nimed. Ära lase ennast sellest eksitada. Seda on tehtud ainult seepärast, et ei peaks näite jaoks leiutama mingeid sisulisi andmeid.
+{% endhint %}
+
 Päringu vastuseks on JSON:
 
 ```json
@@ -193,7 +197,7 @@ Veebirakenduse näeb loodud taotlus välja nii:
 
 ## Faili lisamine
 
-Kasutades eelnevatest vastustest saadud andmeid (token, employeeId, applicationId), käivitame päringu:
+Kasutades eelnevatest vastustest saadud andmeid (_token, employeeId, applicationId_), käivitame päringu:
 
 <pre class="language-shell"><code class="lang-shell"><strong>curl --location --request POST '{{apiBaseUrl}}/ska/file/create?token=71e0d98f1ab52c225d655359190b684' \
 </strong>--data-raw '{
@@ -219,7 +223,7 @@ Veebirakenduses näeb lisatud fail välja nii:
 
 ## Taotluse saatmine
 
-Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
+Kasutades eelnevatest vastustest saadud andmeid (_token, applicationId_), käivitame päringu:
 
 {% code overflow="wrap" %}
 ```shell
@@ -241,7 +245,7 @@ Taotlus ilmub Rahvusarhiivi arhiivipäringute haldamise moodulisse:
 
 ## Oleku pärimine
 
-Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
+Kasutades eelnevatest vastustest saadud andmeid (_token, applicationId_), käivitame päringu:
 
 {% code overflow="wrap" %}
 ```shell
@@ -264,7 +268,7 @@ Päringu vastuseks on JSON:
 
 ## Taotluse vaatamine
 
-Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
+Kasutades eelnevatest vastustest saadud andmeid (_token, applicationId_), käivitame päringu:
 
 {% code overflow="wrap" %}
 ```shell
@@ -383,7 +387,7 @@ Veebirakenduses näeb saadetud taotlus välja nii:
 
 ## Vastuse pärimine
 
-Kasutades eelnevatest vastustest saadud andmeid (token, applicationId), käivitame päringu:
+Kasutades eelnevatest vastustest saadud andmeid (_token, applicationId_), käivitame päringu:
 
 {% code overflow="wrap" %}
 ```shell

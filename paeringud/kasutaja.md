@@ -10,7 +10,7 @@ description: Päringute dokumentatsioon
 {{apiBaseUrl}}/user/verify
 ```
 
-Kõigile päringutele tuleb ühe parameetrina lisada juurde ajutiselt kehtiv juurdepääsukood ehk token. Tokeni väljastab päring, mis kontrollib kasutajanime ja salasõna järgi, kas kasutaja on olemas.
+Kõigile päringutele tuleb ühe parameetrina lisada juurde ajutiselt kehtiv juurdepääsukood ehk _token_. _Tokeni_ väljastab päring, mis kontrollib kasutajanime ja salasõna järgi, kas kasutaja on olemas.
 
 ### Sisend (body form-data)
 
