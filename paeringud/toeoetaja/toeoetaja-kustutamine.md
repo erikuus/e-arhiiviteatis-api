@@ -28,7 +28,6 @@ Töötaja identifikaatori saamise kohta vaata [toeoetaja-loomine.md](toeoetaja-l
 {% code overflow="wrap" %}
 ```shell
 curl --location --request DELETE 'https://www.ra.ee/vau/index.php/api/ska/employee/delete?token=24aad44bab3b258b06e809cc53e9083e&id=301' \
---data-raw ''
 ```
 {% endcode %}
 
@@ -54,7 +53,7 @@ Töötaja on kustutatud.
 }
 ```
 
-**error 5030** - töötaja kustutamine ebaõnnestus
+**error 5030** - töötajat ei saa kustutada (määratlemata tehnilistel põhjustel)
 
 ```json
 {

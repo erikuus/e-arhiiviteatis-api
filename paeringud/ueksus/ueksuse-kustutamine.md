@@ -53,7 +53,7 @@ curl --location --request DELETE 'https://www.ra.ee/vau/index.php/api/ska/depart
 }
 ```
 
-**error 4030** - üksuse kustutamine ebaõnnestus
+**error 4030** - üksust ei saa kustutada (määratlemata tehnilistel põhjustel)
 
 ```json
 {

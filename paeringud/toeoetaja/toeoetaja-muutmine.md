@@ -29,10 +29,10 @@ Töötaja identifikaatori saamise kohta vaata [toeoetaja-loomine.md](toeoetaja-l
 
 | NIMI              | TÜÜP (PIKKUS) | SELGITUS                                   |   |
 | ----------------- | ------------- | ------------------------------------------ | - |
-| firstname \*      | String (256)  | Töötaja eesnimi                            |   |
-| lastname \*       | String (256)  | Töötaja perekonnanimi                      |   |
-| email \*          | String (16)   | Töötaja e-posti aadress                    |   |
-| phone \*          | String (128)  | Töötaja telefoninumber                     |   |
+| firstname \*      | String (128)  | Töötaja eesnimi                            |   |
+| lastname \*       | String (128)  | Töötaja perekonnanimi                      |   |
+| email \*          | String (128)  | Töötaja e-posti aadress                    |   |
+| phone \*          | String (16)   | Töötaja telefoninumber                     |   |
 | department\_id \* | Integer       | Üksuse identifikaator, kuhu töötaja kuulub |   |
 
 Üksuse identifikaatori saamise kohta vaata [ueksuse-loomine.md](../ueksus/ueksuse-loomine.md "mention")ja [ueksuse-leidmine.md](../ueksus/ueksuse-leidmine.md "mention")

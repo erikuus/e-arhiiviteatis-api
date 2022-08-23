@@ -2,7 +2,7 @@
 description: Päringu dokumentatsioon
 ---
 
-# Töötaja loomine
+# Taotluse loomine
 
 ## <mark style="color:orange;">POST</mark> ska/employee/create
 
@@ -52,7 +52,7 @@ curl --location --request POST 'https://www.ra.ee/vau/index.php/api/ska/employee
 
 ### Vastuse näide
 
-Uue töötaja loomine õnnestub ja tagastatakse loodud töötaja identifikaator.
+Uue töötaja loomine õnnestub ja tagastatakse loodud üksuse identifikaator.
 
 ```json
 {

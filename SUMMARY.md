@@ -9,8 +9,14 @@
 ## PÄRINGUD
 
 * [Kasutaja](paeringud/kasutaja.md)
-* [Taotlus](paeringud/taotlus.md)
-* [Manus](paeringud/manus.md)
+* [Taotlus](paeringud/taotlus/README.md)
+  * [Taotluse loomine](paeringud/taotlus/taotluse-loomine.md)
+* [Manus](paeringud/manus/README.md)
+  * [Testimine](paeringud/manus/testimine.md)
+  * [Faili lisamine](paeringud/manus/faili-lisamine.md)
+  * [Failinime muutmine](paeringud/manus/failinime-muutmine.md)
+  * [Failide vaatamine](paeringud/manus/failide-vaatamine.md)
+  * [Faili kustutamine](paeringud/manus/faili-kustutamine.md)
 * [Töötaja](paeringud/toeoetaja/README.md)
   * [Testimine](paeringud/toeoetaja/testimine.md)
   * [Töötaja loomine](paeringud/toeoetaja/toeoetaja-loomine.md)
