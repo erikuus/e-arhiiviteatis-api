@@ -37,8 +37,8 @@ Samuti tuleb iga töötaja puhul määrata, millisesse üksusesse ta kuulub.
 [ueksuste-sirvimine.md](ueksuste-sirvimine.md)
 {% endcontent-ref %}
 
-{% content-ref url="ueksuse-otsimine.md" %}
-[ueksuse-otsimine.md](ueksuse-otsimine.md)
+{% content-ref url="ueksuse-leidmine.md" %}
+[ueksuse-leidmine.md](ueksuse-leidmine.md)
 {% endcontent-ref %}
 
 {% content-ref url="ueksuse-kustutamine.md" %}

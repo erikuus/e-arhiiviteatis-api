@@ -70,3 +70,12 @@ curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/departmen
 {% hint style="info" %}
 Üksuste andmed väljastatakse eestikeelsete väljanimedega, nii et neid on võimalik kasutajaliideses vahetult kuvada.
 {% endhint %}
+
+Mitte ühtegi üksust ei leitud.
+
+```json
+{
+    "responseStatus": "ok",
+    "departmentListView": []
+}
+```

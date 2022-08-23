@@ -1,0 +1,81 @@
+---
+description: Päringu dokumentatsioon
+---
+
+# Töötajate sirvimine
+
+## <mark style="color:green;">GET</mark> ska/employee/list
+
+{% code overflow="wrap" %}
+```
+{{apiBaseUrl}}/ska/employee/list?token={{accessToken}}&firstname={{searchString}}&lastname={{searchString}}&email={{searchString}}&phone={{searchString}}&department_id={{departmentId}}
+```
+{% endcode %}
+
+Väljastab töötajate nimekirja otsiparameetrite alusel, mida võib, aga ei pea kasutama. Maksimaalselt väljastatakse 100 töötaja andmed. Töötajad on järjestatud perekonnanime järgi kasvavalt (ASC).
+
+### Parameetrid (query params)
+
+\*-ga märgitud on kohustuslikud
+
+| NIMI           | TÜÜP (PIKKUS) | SELGITUS                                                     |   |
+| -------------- | ------------- | ------------------------------------------------------------ | - |
+| token \*       | String        | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention") |   |
+| firstname      | String        | Töötaja eesnimi (lubatud metamärgid)                         |   |
+| lastname       | String        | Töötaja perekonnanimi (lubatud metamärgid)                   |   |
+| email          | String        | Töötaja e-posti aadress (lubatud metamärgid)                 |   |
+| phone          | String        | Töötaja telefoninumber (lubatud metamärgid)                  |   |
+| department\_id | Integer       | Üksuse identifikaator, kuhu töötaja kuulub                   |   |
+
+{% hint style="info" %}
+Otsingu metamärgid: \* - tähistab mistahes hulka märke; ? - tähistab ühte märki. Näiteks: otsing "eri\*" leiab "Eri", "Erik", "Erika"; otsing "eri?" leiab eelmainitutest ainult "Erik".
+{% endhint %}
+
+### Päringu näide (cUrl)
+
+{% code overflow="wrap" %}
+```shell
+curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/employee/list?token=24aad44bab3b258b06e809cc53e9083e&firstname=Mari*&lastname=?ä???&email=*@sotsiaalkindlustusamet.ee&department_id=17' \
+```
+{% endcode %}
+
+### Vastuse näide
+
+Töötajate nimekirja väljastamine õnnestub.
+
+```json
+{
+    "responseStatus": "ok",
+    "employeeListView": [
+        {
+            "id": 274,
+            "Eesnimi": "Maritana",
+            "Perekonnanimi": "Järve",
+            "E-post": "Maritana.Jarve@sotsiaalkindlustusamet.ee",
+            "Telefon": "6408115",
+            "Üksus": "SKA Menetlustalitus"
+        },
+        {
+            "id": 154,
+            "Eesnimi": "Mari",
+            "Perekonnanimi": "Räppo",
+            "E-post": "Mari.Rappo@sotsiaalkindlustusamet.ee",
+            "Telefon": "640 8101",
+            "Üksus": "SKA Menetlustalitus"
+        }
+    ]
+}
+```
+
+{% hint style="info" %}
+Töötajate andmed väljastatakse eestikeelsete väljanimedega, nii et neid on võimalik kasutajaliideses vahetult kuvada.
+{% endhint %}
+
+Mitte ühtegi töötajat ei leitud.
+
+```json
+{
+    "responseStatus": "ok",
+    "employeeListView": []
+}
+```

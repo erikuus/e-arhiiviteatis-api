@@ -21,7 +21,7 @@ Kustutab üksuse identifikaatori alusel. Tegemist on n-ö SOFT DELETE kustutamis
 | token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention") |   |
 | id \*    | Integer | Üksuse identifikaator                                        |   |
 
-Üksuse identifikaatori saamise kohta vaata [ueksuse-loomine.md](ueksuse-loomine.md "mention")ja [ueksuse-otsimine.md](ueksuse-otsimine.md "mention")
+Üksuse identifikaatori saamise kohta vaata [ueksuse-loomine.md](ueksuse-loomine.md "mention")ja [ueksuse-leidmine.md](ueksuse-leidmine.md "mention")
 
 ### Päringu näide (cUrl)
 
