@@ -4,13 +4,13 @@ description: Päringu dokumentatsioon
 
 # Taotluse loomine
 
-## <mark style="color:orange;">POST</mark> ska/employee/create
+## <mark style="color:orange;">POST</mark> ska/application/create
 
 ```
-{{apiBaseUrl}}/ska/employee/create?token={{accessToken}}
+{{apiBaseUrl}}/ska/application/create?token={{accessToken}}
 ```
 
-Loob uue töötaja ja tagastab selle identifikaatori.
+Loob uue taotluse ja tagastab selle identifikaatori.
 
 ### Parameetrid (query params)
 
@@ -22,17 +22,31 @@ Loob uue töötaja ja tagastab selle identifikaatori.
 
 ### Sisend (body raw json)
 
+JSON peab sisaldama vähemalt taotluse objekti `Application`:
+
+```json
+{
+    "Application": {}
+}
+```
+
+Kui taotlusele soovitakse lisada üks või mitu õppeastust või töökohta, siis peab JSON sisaldama ka `Study` ja/või `Work` objektide nimekirja:&#x20;
+
+
+
 \*-ga märgitud on kohustuslikud
 
-| NIMI              | TÜÜP (PIKKUS) | SELGITUS                                   |   |
-| ----------------- | ------------- | ------------------------------------------ | - |
-| firstname \*      | String (128)  | Töötaja eesnimi                            |   |
-| lastname \*       | String (128)  | Töötaja perekonnanimi                      |   |
-| email \*          | String (128)  | Töötaja e-posti aadress                    |   |
-| phone \*          | String (16)   | Töötaja telefoninumber                     |   |
-| department\_id \* | Integer       | Üksuse identifikaator, kuhu töötaja kuulub |   |
+| NIMI              | TÜÜP (PIKKUS) | SELGITUS |   |
+| ----------------- | ------------- | -------- | - |
+| Application \*    | String (128)  |          |   |
+| lastname \*       | String (128)  |          |   |
+| email \*          | String (128)  |          |   |
+| phone \*          | String (16)   |          |   |
+| department\_id \* | Integer       |          |   |
 
 Üksuse identifikaatori saamise kohta vaata [ueksuse-loomine.md](../ueksus/ueksuse-loomine.md "mention")ja [ueksuse-leidmine.md](../ueksus/ueksuse-leidmine.md "mention")
+
+Töötaja identifikaatori saamise kohta vaata [toeoetaja-loomine.md](../toeoetaja/toeoetaja-loomine.md "mention") ja [toeoetaja-leidmine.md](../toeoetaja/toeoetaja-leidmine.md "mention")
 
 ### Päringu näide (cUrl)
 
