@@ -29,7 +29,7 @@ Taotluse identifikaatori saamise kohta vaata [taotluse-loomine.md](../taotlus/ta
 
 {% code overflow="wrap" %}
 ```shell
-curl
+curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/file/list?token=fad056fddce1abf150f33d49a5653969&application_id=10701' \
 ```
 {% endcode %}
 
@@ -39,13 +39,27 @@ Failide nimekirja väljastamine õnnestub.
 
 ```json
 {
-    
+    "responseStatus": "ok",
+    "fileListView": [
+        {
+            "id": 23,
+            "url": "https://www.ra.ee/eteatis/index.php/file/download?code=EZSjmi-V0wE2K1v5",
+            "filename": "Kukk-paringu-lisa.pdf",
+            "filesize": "120 KB",
+            "creator": "Ele Keskküla",
+            "modified": "02.03.2018 15:48"
+        },
+        {
+            "id": 24,
+            "url": "https://www.ra.ee/eteatis/index.php/file/download?code=qpFWHN103uyKvuZ4",
+            "filename": "Kukk-sunnitunnistus.pdf",
+            "filesize": "312 KB",
+            "creator": "Ele Keskküla",
+            "modified": "02.03.2018 15:48"
+        }
+    ]
 }
 ```
-
-{% hint style="info" %}
-Failide andmed väljastatakse eestikeelsete väljanimedega, nii et neid on võimalik kasutajaliideses vahetult kuvada.
-{% endhint %}
 
 Mitte ühtegi faili ei leitud.
 
