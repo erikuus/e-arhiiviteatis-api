@@ -4,7 +4,7 @@ description: Päringu dokumentatsioon
 
 # Töötaja muutmine
 
-## <mark style="color:blue;">PUT</mark> ska/employee/create
+## <mark style="color:blue;">PUT</mark> ska/employee/update
 
 ```
 {{apiBaseUrl}}/ska/employee/update?token={{accessToken}}&id={{employeeId}}

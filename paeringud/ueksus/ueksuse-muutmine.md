@@ -4,7 +4,7 @@ description: Päringu dokumentatsioon
 
 # Üksuse muutmine
 
-## <mark style="color:blue;">PUT</mark> ska/department/create
+## <mark style="color:blue;">PUT</mark> ska/department/update
 
 ```
 {{apiBaseUrl}}/ska/department/update?token={{accessToken}}&id={{departmentId}}
