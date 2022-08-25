@@ -16,12 +16,10 @@ Kustutab faili identifikaatori alusel.
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI     | TÜÜP    | SELGITUS                                                     |   |
-| -------- | ------- | ------------------------------------------------------------ | - |
-| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention") |   |
-| id \*    | Integer | Faili identifikaator                                         |   |
-
-Faili identifikaatori saamise kohta vaata [faili-lisamine.md](faili-lisamine.md "mention")
+| NIMI     | TÜÜP    | SELGITUS                                                                                                                                                          |   |
+| -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention")                                                                                                      |   |
+| id \*    | Integer | <p>Faili identifikaator<br><br><em>NB! Faili identifikaatori saamise kohta vaata</em> <a data-mention href="faili-lisamine.md">faili-lisamine.md</a><em></em></p> |   |
 
 ### Päringu näide (cUrl)
 

@@ -16,12 +16,10 @@ Väljastab üksuse andmed identifikaatori alusel.
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI     | TÜÜP    | SELGITUS                                                     |   |
-| -------- | ------- | ------------------------------------------------------------ | - |
-| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention") |   |
-| id \*    | Integer | Üksuse identifikaator                                        |   |
-
-Üksuse identifikaatori saamise kohta vaata [ueksuse-loomine.md](ueksuse-loomine.md "mention")ja [ueksuse-leidmine.md](ueksuse-leidmine.md "mention")
+| NIMI     | TÜÜP    | SELGITUS                                                                                                                                                                                                                                            |   |
+| -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention")                                                                                                                                                                                        |   |
+| id \*    | Integer | <p>Üksuse identifikaator<br><br><em>NB! Üksuse identifikaatori saamise kohta vaata</em> <a data-mention href="ueksuse-loomine.md">ueksuse-loomine.md</a><em>ja</em> <a data-mention href="ueksuse-leidmine.md">ueksuse-leidmine.md</a><em></em></p> |   |
 
 ### Päringu näide (cUrl)
 

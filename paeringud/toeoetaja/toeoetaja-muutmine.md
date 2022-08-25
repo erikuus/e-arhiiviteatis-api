@@ -16,26 +16,22 @@ Muudab töötaja andmeid identifikaatori alusel.
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI     | TÜÜP    | SELGITUS                                                     |   |
-| -------- | ------- | ------------------------------------------------------------ | - |
-| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention") |   |
-| id \*    | Integer | Töötaja identifikaator                                       |   |
-
-Töötaja identifikaatori saamise kohta vaata [toeoetaja-loomine.md](toeoetaja-loomine.md "mention") ja [toeoetaja-leidmine.md](toeoetaja-leidmine.md "mention")
+| NIMI     | TÜÜP    | SELGITUS                                                                                                                                                                                                                                                       |   |
+| -------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention")                                                                                                                                                                                                   |   |
+| id \*    | Integer | <p>Töötaja identifikaator<br><br><em>NB! Töötaja identifikaatori saamise kohta vaata</em> <a data-mention href="toeoetaja-loomine.md">toeoetaja-loomine.md</a> <em>ja</em> <a data-mention href="toeoetaja-leidmine.md">toeoetaja-leidmine.md</a><em></em></p> |   |
 
 ### Sisend (body raw json)
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI              | TÜÜP (PIKKUS) | SELGITUS                                   |   |
-| ----------------- | ------------- | ------------------------------------------ | - |
-| firstname \*      | String (128)  | Töötaja eesnimi                            |   |
-| lastname \*       | String (128)  | Töötaja perekonnanimi                      |   |
-| email \*          | String (128)  | Töötaja e-posti aadress                    |   |
-| phone \*          | String (16)   | Töötaja telefoninumber                     |   |
-| department\_id \* | Integer       | Üksuse identifikaator, kuhu töötaja kuulub |   |
-
-Üksuse identifikaatori saamise kohta vaata [ueksuse-loomine.md](../ueksus/ueksuse-loomine.md "mention")ja [ueksuse-leidmine.md](../ueksus/ueksuse-leidmine.md "mention")
+| NIMI              | TÜÜP (PIKKUS) | SELGITUS                                                                                                                                                                                                                                                                            |   |
+| ----------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| firstname \*      | String (128)  | Töötaja eesnimi                                                                                                                                                                                                                                                                     |   |
+| lastname \*       | String (128)  | Töötaja perekonnanimi                                                                                                                                                                                                                                                               |   |
+| email \*          | String (128)  | Töötaja e-posti aadress                                                                                                                                                                                                                                                             |   |
+| phone \*          | String (16)   | Töötaja telefoninumber                                                                                                                                                                                                                                                              |   |
+| department\_id \* | Integer       | <p>Üksuse identifikaator, kuhu töötaja kuulub<br><br><em>NB! Üksuse identifikaatori saamise kohta vaata</em> <a data-mention href="../ueksus/ueksuse-loomine.md">ueksuse-loomine.md</a><em>ja</em> <a data-mention href="../ueksus/ueksuse-leidmine.md">ueksuse-leidmine.md</a></p> |   |
 
 ### Päringu näide (cUrl)
 

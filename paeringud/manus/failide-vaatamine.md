@@ -18,18 +18,16 @@ Väljastab taotluse identifikaatori järgi sellele taotlusele lisatud failide ni
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI            | TÜÜP (PIKKUS) | SELGITUS                                                     |   |
-| --------------- | ------------- | ------------------------------------------------------------ | - |
-| token \*        | String        | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention") |   |
-| application\_id | Integer       | Taotluse identifikaator, mille faile vaadatakse              |   |
-
-Taotluse identifikaatori saamise kohta vaata [taotluse-loomine.md](../taotlus/taotluse-loomine.md "mention")
+| NIMI            | TÜÜP    | SELGITUS                                                                                                                                                                                              |   |
+| --------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| token \*        | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention")                                                                                                                                          |   |
+| application\_id | Integer | <p>Taotluse identifikaator, mille faile vaadatakse<br><br><em>NB! Taotluse identifikaatori saamise kohta vaata</em> <a data-mention href="../taotlus/taotluse-loomine.md">taotluse-loomine.md</a></p> |   |
 
 ### Päringu näide (cUrl)
 
 {% code overflow="wrap" %}
 ```shell
-curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/file/list?token=fad056fddce1abf150f33d49a5653969&application_id=10701' \
+curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/file/list?token=fad056fddce1abf150f33d49a5653969&application_id=16610' \
 ```
 {% endcode %}
 

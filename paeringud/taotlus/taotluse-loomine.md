@@ -30,87 +30,187 @@ JSON peab sisaldama vähemalt taotluse objekti `Application`:
 }
 ```
 
-Kui taotlusele soovitakse lisada üks või mitu õppeastust või töökohta, siis peab JSON sisaldama ka `Study` ja/või `Work` objektide nimekirja:&#x20;
+Kui taotlusele soovitakse lisada üks või mitu õppeastust ja/või töökohta, siis peab JSON sisaldama ka `Study` ja/või `Work` objekte:&#x20;
 
+```json
+{
+    "Application": {},
+    "Study": [{},{}],
+    "Work": [{},{}]    
+}
+```
 
+{% hint style="info" %}
+Alljärgnevat tehnilist dokumentatsiooni on lihtsam hoomata, kui vaadata paralleelselt veebirakenduse sisestusvormi [ekraanivaadet](taotluse-loomine.md#undefined).
+{% endhint %}
+
+#### Application
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI              | TÜÜP (PIKKUS) | SELGITUS |   |
-| ----------------- | ------------- | -------- | - |
-| Application \*    | String (128)  |          |   |
-| lastname \*       | String (128)  |          |   |
-| email \*          | String (128)  |          |   |
-| phone \*          | String (16)   |          |   |
-| department\_id \* | Integer       |          |   |
+| NIMI                           | TÜÜP (PIKKUS) | SELGITUS                                                                                                                                                                                                                                                                                                                               |   |
+| ------------------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| applicant\_firstname \*        | String (64)   | Taotleja eesnimi                                                                                                                                                                                                                                                                                                                       |   |
+| applicant\_lastname \*         | String (64)   | Taotleja perekonnanimi                                                                                                                                                                                                                                                                                                                 |   |
+| applicant\_birthday \*         | Date          | <p>Taotleja sünnikuupäev<br><br><em>NB! Lubatud formaat on</em> <code>dd.MM.yyyy</code></p>                                                                                                                                                                                                                                            |   |
+| applicant\_address \*          | String (256)  | Taotleja aadress                                                                                                                                                                                                                                                                                                                       |   |
+| applicant\_zip \*              | String (16)   | Taotleja aadressi postiindeks                                                                                                                                                                                                                                                                                                          |   |
+| applicant\_phone               | String (64)   | Taotleja telefoninumber                                                                                                                                                                                                                                                                                                                |   |
+| applicant\_email               | String (256)  | Taotleja e-posti aadress                                                                                                                                                                                                                                                                                                               |   |
+| applicant\_id\_nr              | String(11)    | <p>Taotleja isikukood<br><br><em>NB! Veebirakenduse sisestusvormis isikukoodi ei ole, mistõttu seda pole ka seniste taotluste juures. Kuna Rahvusarhiivil on palju ka välismaiseid kliente, moodustatakse kliendikood nimest ja sünnikuupäevast. Isikukood on lisatud spetsiaalselt API jaoks ja seda saab kasutada otsingus.</em></p> |   |
+| applicant\_names\_info         | String        | Taotleja nimemuutused ja erinevad nimekujud õppimise/töötamise ajal                                                                                                                                                                                                                                                                    |   |
+| applicant\_department\_id      | Integer       | Üksuse identifikaator, juhul kui teatise tellijaks ja riigilõivu tasujaks ei ole isik, vaid üksus                                                                                                                                                                                                                                      |   |
+| study\_comments                | String        | <p>Märkused, täiendused õppimise kohta<br><br><em>NB! Selle välja väärtus salvestatakse ainult siis, kui on määratud vähemalt üks õppeasutus, st</em> <code>JSON</code><em>-is on vähemalt üks</em> <code>Study</code> <em>objekt.</em>  </p>                                                                                          |   |
+| work\_pension\_info            | String        | <p>Õigus sooduspensionile, vajalike tingimuste kirjeldus<br><br><em>NB! Selle välja väärtus salvestatakse ainult siis, kui on määratud vähemalt üks töökoht, st</em> <code>JSON</code><em>-is on vähemalt üks</em> <code>Work</code> <em>objekt.</em></p>                                                                              |   |
+| work\_comments                 | String        | <p>Märkused, täiendused töötamise kohta<br><br><em>NB! Selle välja väärtus salvestatakse ainult siis, kui on määratud vähemalt üks töökoht, st</em> <code>JSON</code><em>-is on vähemalt üks</em> <code>Work</code> <em>objekt.</em></p>                                                                                               |   |
+| farm\_info                     | String        | Talus töötamine: maakond, vald, talu nimi, aeg                                                                                                                                                                                                                                                                                         |   |
+| military\_info                 | String        | Sõjaväeteenistus: Eesti Kaitseväes teenimise puhul väeosa ja teenimise aeg, Saksa sõjaväes teenimise puhul kõik teadaolevad andmed                                                                                                                                                                                                     |   |
+| rear\_info                     | String        | Viibimine nõukogude tagalas: kellega koos tagalasse saadeti (andmed vanemate kohta) ja kõik muud teadaolevad andmed                                                                                                                                                                                                                    |   |
+| prison\_info                   | String        | Vangilaagris ja asumisel viibimine: kellega koos laagrisse/asumisele saadeti (andmed vanemate kohta), millal ja kelle poolt karistatud, karistuse kandmise aeg ja koht, vabanemise aeg                                                                                                                                                 |   |
+| work\_camp\_info               | String        | Töölaagris, koonduslaagris või sõjavangilaagris viibimine: laagri nimetus, kinnipidamise ja vabastamise aeg                                                                                                                                                                                                                            |   |
+| ww2\_estonia\_info             | String        | II maailmasõja ajal Eestisse toomine: kellega koos toodi (andmed vanemate kohta), toomise aeg ja koht, laagrite nimed ja kinnipidamisaeg, kuhu suunati elama ja tööle                                                                                                                                                                  |   |
+| ww2\_germany\_info             | String        | II maailmasõja ajal Saksamaale saatmine: kellega koos saadeti (andmed vanemate kohta), kust ja millal saadeti, laagrite nimed, töökohad Saksamaal, Eestisse naasmise aeg ja koht                                                                                                                                                       |   |
+| other\_comments                | String        | Muud märkused ja täiendused taotluse kohta                                                                                                                                                                                                                                                                                             |   |
+| taxnotice\_delivery\_method \* | String        | <p>Valik: kas taotleja soovib arhiivilt teadet riigilõivu tasumise kohta tavapostiga või e-postiga<br><br><em>NB! Lubatud väärtused on:</em><br><em></em><code>DELIVERY_POSTAL</code> <em>või</em> <code>DELIVERY_EMAIL</code></p>                                                                                                     |   |
+| copy\_delivery\_method         | String        | <p>Valik: kas taotleja soovib koopiat arhiiviteatisest tavapostiga või e-postiga<br><br><em>NB! Lubatud väärtused on:</em><br><em></em><code>DELIVERY_POSTAL</code> <em>või</em> <code>DELIVERY_EMAIL</code></p>                                                                                                                       |   |
+| employee\_id                   | Integer       | <p>Sotsiaalkindlustusameti töötaja, kes taotluse koostas/sisestas<br><br><em>NB! Üksuse identifikaatori saamise kohta vaata</em> <a data-mention href="../ueksus/ueksuse-loomine.md">ueksuse-loomine.md</a><em>ja</em> <a data-mention href="../ueksus/ueksuse-leidmine.md">ueksuse-leidmine.md</a><em></em></p>                       |   |
+| department\_id                 | Integer       | <p>Sotsiaalkindlustusameti üksus, kuhu arhiiviteatis edastatakse<br><br><em>NB! Töötaja identifikaatori saamise kohta vaata</em> <a data-mention href="../toeoetaja/toeoetaja-loomine.md">toeoetaja-loomine.md</a> <em>ja</em> <a data-mention href="../toeoetaja/toeoetaja-leidmine.md">toeoetaja-leidmine.md</a></p>                 |   |
 
-Üksuse identifikaatori saamise kohta vaata [ueksuse-loomine.md](../ueksus/ueksuse-loomine.md "mention")ja [ueksuse-leidmine.md](../ueksus/ueksuse-leidmine.md "mention")
+#### Study
 
-Töötaja identifikaatori saamise kohta vaata [toeoetaja-loomine.md](../toeoetaja/toeoetaja-loomine.md "mention") ja [toeoetaja-leidmine.md](../toeoetaja/toeoetaja-leidmine.md "mention")
+\*-ga märgitud on kohustuslikud
+
+| NIMI           | TÜÜP (PIKKUS) | SELGITUS                      |   |
+| -------------- | ------------- | ----------------------------- | - |
+| institution \* | String (512)  | Õppeasutuse nimetus           |   |
+| period \*      | String (512)  | Õppimise aeg (kuupäevaliselt) |   |
+| specialty      | String (512)  | Eriala                        |   |
+
+#### Work
+
+\*-ga märgitud on kohustuslikud
+
+| NIMI           | TÜÜP (PIKKUS) | SELGITUS                       |   |
+| -------------- | ------------- | ------------------------------ | - |
+| institution \* | String (512)  | Asutuse nimetus                |   |
+| period \*      | String (512)  | Töötamise aeg (kuupäevaliselt) |   |
+| specialty \*   | String (512)  | Eriala                         |   |
 
 ### Päringu näide (cUrl)
 
-{% code overflow="wrap" %}
 ```shell
-curl --location --request POST 'https://www.ra.ee/vau/index.php/api/ska/employee/create?token=ea2397458ba644c6fd2d70b05adb6661' \
+curl --location --request POST 'https://www.ra.ee/vau/index.php/api/ska/application/create?token=db9a1afb27d892ad3303095ce580f9cc' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "firstname": "Erik",
-    "lastname": "Uus",
-    "email": "erik.uus@ra.ee",
-    "phone": "+372 5322 5388",
-    "department_id": 30
+    "Application": {
+        "applicant_firstname": "Erik",
+        "applicant_lastname": "Uus",
+        "applicant_birthday": "30.07.1973",
+        "applicant_address": "Tammsaare 8-25",
+        "applicant_id_nr": "37307302715",
+        "applicant_zip": "51006",
+        "applicant_phone": "+37253225388",
+        "applicant_email": "erik.uus@gmail.com",
+        "applicant_names_info": "Uks, Uss",
+        "applicant_department_id": null,
+        "study_comments": "Märkused, täiendused",
+        "work_pension_info": "Õigus sooduspensionile, vajalike tingimuste kirjeldus",
+        "work_comments": "Märkused, täiendused",
+        "farm_info": "Maakond, vald, talu nimi, aeg",
+        "military_info": "Kirjeldus; Eesti Kaitseväes teenimise puhul märkida väeosa ja teenimise aeg, Saksa sõjaväes teenimise puhul kõik teadaolevad andmed",
+        "rear_info": "Kirjeldus; kellega koos tagalasse saadeti (andmed vanemate kohta) ja märkida kõik teadaolevad andmed",
+        "prison_info": "Kirjeldus; kellega koos laagrisse/asumisele saadeti (andmed vanemate kohta), millal ja kelle poolt karistatud, karistuse kandmise aeg ja koht, vabanemise aeg",
+        "work_camp_info": "Laagri nimetus, kinnipidamise ja vabastamise aeg",
+        "ww2_estonia_info": "Kirjeldus; kellega koos toodi (andmed vanemate kohta), toomise aeg ja koht, laagrite nimed ja kinnipidamisaeg, kuhu suunati elama ja tööle",
+        "ww2_germany_info": "Kirjeldus; kellega koos saadeti (andmed vanemate kohta), kust ja millal saadeti, laagrite nimed, töökohad Saksamaal, Eestisse naasmise aeg ja koht",
+        "other_comments": "Märkused, täiendused",
+        "taxnotice_delivery_method": "DELIVERY_EMAIL",
+        "copy_delivery_method": "DELIVERY_EMAIL",
+        "employee_id": null,
+        "department_id": null
+    },
+    "Study": [
+        {
+            "institution": "Nõo Keskkool",
+            "period": "1980 - 1991",
+            "specialty": ""
+        },
+        {
+            "institution": "Tartu Ülikool",
+            "period": "1991 - 1995",
+            "specialty": "usuteadus"
+        }
+    ],
+    "Work": [
+        {
+            "institution": "Rahvusarhiiv",
+            "period": "2006 - 2022",
+            "specialty": "programmeerija"
+        },
+        {
+            "institution": "Babahh OÜ",
+            "period": "2014 - 2018",
+            "specialty": "programmeerija"
+        }
+    ]
 }'
 ```
-{% endcode %}
 
 ### Vastuse näide
 
-Uue töötaja loomine õnnestub ja tagastatakse loodud üksuse identifikaator.
+Taotluse loomine õnnestub ja tagastatakse loodud taotluse identifikaator.
 
 ```json
 {
     "responseStatus": "ok",
-    "employeeId": 301
+    "applicationId": 16610
 }
 ```
 
 ### Veateated
 
-**error 5050** - töötajat ei saa luua, kuna sisendväärtused ei valideeru&#x20;
+**error 3050** - taotlust ei saa luua, kuna sisendväärtused ei valideeru&#x20;
 
 ```json
 {
     "responseStatus": "error",
-    "errorCode": 5050,
-    "errorMessage": "Could not create employee",
-    "errors": {
-        "firstname": [
-            "Eesnimi ei tohi olla tühi."
-        ],
-        "email": [
-            "E-post ei ole korrektne e-posti aadress."
-        ]
-    }
+    "errorCode": 3050,
+    "errorMessage": "Could not create application",
+    "errors": [
+        {
+            "applicant_firstname": [
+                "Eesnimi ei tohi olla tühi."
+            ],
+            "taxnotice_delivery_method": [
+                "Mittelubatud väärtus."
+            ],
+            "employee_id": [
+                "Töötaja peab olema arv."
+            ],
+            "department_id": [
+                "Üksus \"0\" ei eksisteeri."
+            ]
+        }
+    ]
 }
 ```
 
-**error 5051** - päringu _raw body_ ei sisalda _JSON_ _stringi_
+**error 3051** - päringu _raw body_ ei sisalda _JSON_ _stringi_ või selles puudub _Application_ objekt
 
 ```json
 {
     "responseStatus": "error",
-    "errorCode": 5051,
+    "errorCode": 3051,
     "errorMessage": "Request body is invalid or empty"
 }
 ```
 
-**error 5052** - vale meetod
+**error 3052** - vale meetod
 
 ```json
 {
     "responseStatus": "error",
-    "errorCode": 5052,
+    "errorCode": 3052,
     "errorMessage": "Is not POST request"
 }
 ```
@@ -118,3 +218,9 @@ Uue töötaja loomine õnnestub ja tagastatakse loodud üksuse identifikaator.
 {% hint style="info" %}
 Pane tähele, et neis näidetes "responseStatus" on "error", aga vastuse "HTTP response status code" on "200 __ OK".&#x20;
 {% endhint %}
+
+### Ekraanivaade
+
+Veebirakenduse sisestusvormi ekraanivaade:
+
+<figure><img src="../../.gitbook/assets/E-arhiiviteatis-Uus-taotlus (1).png" alt=""><figcaption></figcaption></figure>

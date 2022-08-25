@@ -14,7 +14,7 @@ Veebirakendus on selles mõttes autonoomne, et selle kasutajad (SKA töötajad) 
 
 **Veebirakenduse ekraanivaated**
 
-![](.gitbook/assets/E-arhiiviteatis-Avaleht.png) ![](<.gitbook/assets/E-arhiiviteatis-Uus-taotlus (1).png>)
+![](.gitbook/assets/E-arhiiviteatis-Avaleht.png) ![](<.gitbook/assets/E-arhiiviteatis-Uus-taotlus (1) (1).png>)
 
 ![](.gitbook/assets/E-arhiiviteatis-Vaata-taotlust.png) ![](.gitbook/assets/E-arhiiviteatis-Taotlused.png)
 

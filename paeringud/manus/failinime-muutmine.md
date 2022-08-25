@@ -27,12 +27,10 @@ Faili identifikaatori saamise kohta vaata [faili-lisamine.md](faili-lisamine.md 
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI            | TÜÜP (PIKKUS) | SELGITUS                                                                                                                                                         |   |
-| --------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
-| employee\_id \* | Integer       | Töötaja identifikaator, kes failinime muudab                                                                                                                     |   |
-| file\_name \*   | String (256)  | Failinimi, mis võib sisaldada ainult täppideta tähti, numbreid ja sidekriipsu. Lubatud on järgmised failinime laiendused: bdoc, ddoc, asice, pdf, jpeg, jpg, png |   |
-
-Töötaja identifikaatori saamise kohta vaata [toeoetaja-loomine.md](../toeoetaja/toeoetaja-loomine.md "mention") ja [toeoetaja-leidmine.md](../toeoetaja/toeoetaja-leidmine.md "mention")
+| NIMI            | TÜÜP (PIKKUS) | SELGITUS                                                                                                                                                                                                                                                                                                       |   |
+| --------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| employee\_id \* | Integer       | <p>Töötaja identifikaator, kes failinime muudab<br><br><em>NB! Töötaja identifikaatori saamise kohta vaata</em> <a data-mention href="../toeoetaja/toeoetaja-loomine.md">toeoetaja-loomine.md</a> <em>ja</em> <a data-mention href="../toeoetaja/toeoetaja-leidmine.md">toeoetaja-leidmine.md</a><em></em></p> |   |
+| file\_name \*   | String (256)  | Failinimi, mis võib sisaldada ainult täppideta tähti, numbreid ja sidekriipsu. Lubatud on järgmised failinime laiendused: bdoc, ddoc, asice, pdf, jpeg, jpg, png                                                                                                                                               |   |
 
 ### Päringu näide (cUrl)
 

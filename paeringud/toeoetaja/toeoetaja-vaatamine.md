@@ -16,12 +16,10 @@ Väljastab töötaja andmed identifikaatori alusel.
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI     | TÜÜP    | SELGITUS                                                     |   |
-| -------- | ------- | ------------------------------------------------------------ | - |
-| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention") |   |
-| id \*    | Integer | Töötaja identifikaator                                       |   |
-
-Töötaja identifikaatori saamise kohta vaata [toeoetaja-loomine.md](toeoetaja-loomine.md "mention") ja [toeoetaja-leidmine.md](toeoetaja-leidmine.md "mention")
+| NIMI     | TÜÜP    | SELGITUS                                                                                                                                                                                                                                              |   |
+| -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention")                                                                                                                                                                                          |   |
+| id \*    | Integer | <p>Töötaja identifikaator<br><br><em>NB! Töötaja identifikaatori saamise kohta vaata</em> <a data-mention href="toeoetaja-loomine.md">toeoetaja-loomine.md</a> <em>ja</em> <a data-mention href="toeoetaja-leidmine.md">toeoetaja-leidmine.md</a></p> |   |
 
 ### Päringu näide (cUrl)
 
