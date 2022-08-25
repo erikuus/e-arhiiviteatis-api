@@ -4,63 +4,71 @@ description: Päringu dokumentatsioon
 
 # Taotluse oleku vaatamine
 
-## <mark style="color:green;">GET</mark> ska/employee/view
+## <mark style="color:green;">GET</mark> ska/application/status
 
 ```
-{{apiBaseUrl}}/ska/employee/view?token={{accessToken}}&id={{employeeId}}
+{{apiBaseUrl}}/ska/application/status?token={{accessToken}}&id={{applicationId}}
 ```
 
-Väljastab töötaja andmed identifikaatori alusel.
+Väljastab taotluse identifikaatori alusel info selle kohta, millises olekus on taotluse menetlemine Rahvusarhiivis.
 
 ### Parameetrid (query params)
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI     | TÜÜP    | SELGITUS                                                     |   |
-| -------- | ------- | ------------------------------------------------------------ | - |
-| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention") |   |
-| id \*    | Integer | Töötaja identifikaator                                       |   |
-
-Töötaja identifikaatori saamise kohta vaata [toeoetaja-loomine.md](../toeoetaja/toeoetaja-loomine.md "mention") ja [toeoetaja-leidmine.md](../toeoetaja/toeoetaja-leidmine.md "mention")
+| NIMI     | TÜÜP    | SELGITUS                                                                                                                                                                    |   |
+| -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention")                                                                                                                |   |
+| id \*    | Integer | <p>Taotluse identifikaator<br><br><em>NB! Taotluse identifikaatori saamise kohta vaata</em> <a data-mention href="taotluse-loomine.md">taotluse-loomine.md</a><em></em></p> |   |
 
 ### Päringu näide (cUrl)
 
 {% code overflow="wrap" %}
 ```shell
-curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/employee/view?token=ea2397458ba644c6fd2d70b05adb6661&id=301'
+curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/application/status?token=db9a1afb27d892ad3303095ce580f9cc&id=16610'
 ```
 {% endcode %}
 
 ### Vastuse näide
 
-Töötaja andmete väljastamine õnnestub.&#x20;
+Taotluse menetlemise oleku väljastamine õnnestub.&#x20;
 
 ```json
 {
     "responseStatus": "ok",
-    "employeeDetailView": {
-        "Eesnimi": "Erik",
-        "Perekonnanimi": "Uus",
-        "E-post": "erik.uus@ra.ee",
-        "Telefon": "+372 5322 5388",
-        "Üksus": "Test osakond"
+    "applicationStatus": {
+        "code": "REJECTED",
+        "text": "Tagasilükatud",
+        "htmlMessage": "<p>Rahvusarhiivil ei ole võimalik päringule (Urmas Toom 08.11.2021 10:08) vastata, vastavaid dokumente ei ole Rahvusarhiivile üle antud. Soovitame pöörduda Tallinna Tööstushariduskeskuse poole (info@tthk.ee).</p><p>Lugupidamisega</p><p>Manilve Randala<br />Rahvusarhiiv<br /><span style=\"font-size:10px;color:#666666;\">Nooruse 3, 50411 Tartu <br />tel +372 7387 500 <br />eteatis@ra.ee<br />www.ra.ee</span><br /></p>"
     }
 }
 ```
 
-{% hint style="info" %}
-Töötaja andmed väljastatakse eestikeelsete väljanimedega, nii et neid on võimalik kasutajaliideses vahetult kuvada.
-{% endhint %}
+Taotlus võib olla järgmistes olekutes:
+
+| CODE             | TEXT          | SELGITUS                                                                                                        |   |
+| ---------------- | ------------- | --------------------------------------------------------------------------------------------------------------- | - |
+| DRAFT            | Koostamisel   | Taotlus on salvestatud, aga Rahvusarhiivi saatmata; seda saab veel muutma ja sellele saab lisada manusena faile |   |
+| SUBMITTED        | Saabunud      |                                                                                                                 |   |
+| REJECTED         | Tagasilükatud | Rahvusarhiivil ei ole võimalik päringule vastata                                                                |   |
+| FORWARDED        | Edastatud     |                                                                                                                 |   |
+| ASSIGNED\_UNIT   | Määratud      |                                                                                                                 |   |
+| WAITING\_PAYMENT | Makse ootel   |                                                                                                                 |   |
+| CANCELED         | Tühistatud    |                                                                                                                 |   |
+| OUTDATED         | Aegunud       |                                                                                                                 |   |
+| PAID             | Makstud       |                                                                                                                 |   |
+| BEING\_PROCESSED | Töösse võetud |                                                                                                                 |   |
+| COMPLETED        | Lõpetatud     |                                                                                                                 |   |
 
 ### Veateade
 
-**error 5010** - töötajat ei leitud (määratud identifikaatoriga töötajat andmebaasis ei ole)
+**error 3010** - taotlust ei leitud (määratud identifikaatoriga taotlust andmebaasis ei ole)
 
 ```json
 {
     "responseStatus": "error",
-    "errorCode": 5010,
-    "errorMessage": "The requested employee does not exist."
+    "errorCode": 3010,
+    "errorMessage": "The requested application does not exist"
 }
 ```
 

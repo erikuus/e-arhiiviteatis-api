@@ -171,10 +171,14 @@ Taotluse muutmine õnnestub.
 
 ### Veateated
 
-**error 3040** - taotlust ei saa muuta, kuna
+**error 3040** - taotlust ei saa muuta, kuna taotlus on juba Rahvusarhiivi saadetud
 
 ```json
-// Some code
+{
+    "responseStatus": "error",
+    "errorCode": 3040,
+    "errorMessage": "The requested application is in sent status and could not be updated"
+}
 ```
 
 **error 3041** - taotlust ei saa muuta, kuna sisendväärtused ei valideeru&#x20;
@@ -203,22 +207,22 @@ Taotluse muutmine õnnestub.
 }
 ```
 
-**error 5041** - päringu _raw body_ ei sisalda _JSON_ _stringi_
+**error 3042** - päringu _raw body_ ei sisalda _JSON_ _stringi_ või selles puudub _Application_ objekt
 
 ```json
 {
     "responseStatus": "error",
-    "errorCode": 5041,
+    "errorCode": 3042,
     "errorMessage": "Request body is invalid or empty"
 }
 ```
 
-**error 5042** - vale meetod
+**error 3043** - vale meetod
 
 ```json
 {
     "responseStatus": "error",
-    "errorCode": 5042,
+    "errorCode": 3043,
     "errorMessage": "Is not PUT request"
 }
 ```

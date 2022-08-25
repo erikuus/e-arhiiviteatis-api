@@ -178,10 +178,6 @@ curl --location --request POST '{{apiBaseUrl}}/ska/application/create?token=71e0
 }'
 ```
 
-{% hint style="info" %}
-Pane tähele, et selles näites on mitmete väljade väärtuseks pandud väljade nimed. Ära lase ennast sellest eksitada. Seda on tehtud ainult seepärast, et ei peaks näite jaoks leiutama mingeid sisulisi andmeid.
-{% endhint %}
-
 Päringu vastuseks on JSON:
 
 ```json
@@ -194,6 +190,10 @@ Päringu vastuseks on JSON:
 Veebirakenduse näeb loodud taotlus välja nii:
 
 ![](<.gitbook/assets/E-arhiiviteatis-Vaata-taotlust (2).png>)
+
+{% hint style="info" %}
+Pane tähele, et ülaltoodud näites on mitmete väljade väärtuseks pandud väljade nimed. Seda on tehtud ainult seepärast, et näite koostamine oleks lihtsam. Samal põhjusel on dokumentatsiooni autor märkinud nii taotleja kui töötaja andmeteks oma isikuandmed.
+{% endhint %}
 
 ## Faili lisamine
 
