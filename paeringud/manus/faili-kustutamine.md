@@ -10,7 +10,7 @@ description: Päringu dokumentatsioon
 {{apiBaseUrl}}/ska/file/delete?token={{accessToken}}&id={{fileId}}
 ```
 
-Kustutab faili identifikaatori alusel.
+Kustutab faili identifikaatori alusel. Faili saab kustutada taotluselt, mis ei ole veel Rahvusarhiivi saadetud.
 
 ### Parameetrid (query params)
 

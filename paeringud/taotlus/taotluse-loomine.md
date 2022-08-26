@@ -40,10 +40,6 @@ Kui taotlusele soovitakse lisada üks või mitu õppeastust ja/või töökohta, 
 }
 ```
 
-{% hint style="info" %}
-Alljärgnevat tehnilist dokumentatsiooni on lihtsam hoomata, kui vaadata paralleelselt veebirakenduse sisestusvormi [ekraanivaadet](taotluse-loomine.md#undefined).
-{% endhint %}
-
 #### Application
 
 \*-ga märgitud on kohustuslikud
@@ -218,9 +214,3 @@ Taotluse loomine õnnestub ja tagastatakse loodud taotluse identifikaator.
 {% hint style="info" %}
 Pane tähele, et neis näidetes "responseStatus" on "error", aga vastuse "HTTP response status code" on "200 __ OK".&#x20;
 {% endhint %}
-
-### Ekraanivaade
-
-Veebirakenduse sisestusvormi ekraanivaade:
-
-<figure><img src="../../.gitbook/assets/E-arhiiviteatis-Uus-taotlus (1).png" alt=""><figcaption></figcaption></figure>

@@ -10,7 +10,7 @@ description: Päringu dokumentatsioon
 {{apiBaseUrl}}/ska/application/update?token={{accessToken}}&id={{applicationId}}
 ```
 
-Muudab taotluse andmeid identifikaatori alusel.
+Muudab taotluse andmeid identifikaatori alusel. Muuta saab taotlust, mis ei ole veel Rahvusarhiivi saadetud.
 
 ### Parameetrid (query params)
 
@@ -40,10 +40,6 @@ Kui taotlusele soovitakse lisada üks või mitu õppeastust ja/või töökohta, 
     "Work": [{},{}]    
 }
 ```
-
-{% hint style="info" %}
-Alljärgnevat tehnilist dokumentatsiooni on lihtsam hoomata, kui vaadata paralleelselt veebirakenduse muutmisvormi ekraanivaadet.
-{% endhint %}
 
 #### Application
 

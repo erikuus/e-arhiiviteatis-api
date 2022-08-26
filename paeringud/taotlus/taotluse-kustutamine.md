@@ -4,36 +4,34 @@ description: Päringu dokumentatsioon
 
 # Taotluse kustutamine
 
-## <mark style="color:red;">DELETE</mark> ska/employee/delete
+## <mark style="color:red;">DELETE</mark> ska/application/delete
 
 ```
-{{apiBaseUrl}}/ska/employee/delete?token={{accessToken}}&id={{employeeId}}
+{{apiBaseUrl}}/ska/application/delete?token={{accessToken}}&id={{applicationId}}
 ```
 
-Kustutab töötaja identifikaatori alusel. Tegemist on n-ö SOFT DELETE kustutamisega, mis tähendab seda, et andmed jäävad andmebaasi alles ja need on jätkuvalt nähtavad taotluste juures, aga kustutatud töötaja identifikaatorit ei saa enam päringutes kasutada.
+Kustutab taotluse identifikaatori alusel. Kustutada saab taotlust, mis ei ole veel Rahvusarhiivi saadetud.
 
 ### Parameetrid (query params)
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI     | TÜÜP    | SELGITUS                                                     |   |
-| -------- | ------- | ------------------------------------------------------------ | - |
-| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention") |   |
-| id \*    | Integer | Töötaja identifikaator                                       |   |
-
-Töötaja identifikaatori saamise kohta vaata [toeoetaja-loomine.md](../toeoetaja/toeoetaja-loomine.md "mention") ja [toeoetaja-leidmine.md](../toeoetaja/toeoetaja-leidmine.md "mention")
+| NIMI     | TÜÜP    | SELGITUS                                                                                                                                                                    |   |
+| -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention")                                                                                                                |   |
+| id \*    | Integer | <p>Taotluse identifikaator<br><br><em>NB! Taotluse identifikaatori saamise kohta vaata</em> <a data-mention href="taotluse-loomine.md">taotluse-loomine.md</a><em></em></p> |   |
 
 ### Päringu näide (cUrl)
 
 {% code overflow="wrap" %}
 ```shell
-curl --location --request DELETE 'https://www.ra.ee/vau/index.php/api/ska/employee/delete?token=24aad44bab3b258b06e809cc53e9083e&id=301' \
+curl --location --request DELETE 'https://www.ra.ee/vau/index.php/api/ska/application/delete?token=846a0a7bc2be5e66cba566b0fcaeac3f&id=16610' \
 ```
 {% endcode %}
 
 ### Vastuse näide
 
-Töötaja on kustutatud.
+Taotlus on kustutatud.
 
 ```json
 {
@@ -43,32 +41,42 @@ Töötaja on kustutatud.
 
 ### Veateade
 
-**error 5010** - töötajat ei leitud (määratud identifikaatoriga töötajat andmebaasis ei ole)
+**error 3010** - taotlust ei leitud (määratud identifikaatoriga taotlust andmebaasis ei ole)
 
 ```json
 {
     "responseStatus": "error",
-    "errorCode": 5010,
-    "errorMessage": "The requested employee does not exist."
+    "errorCode": 3010,
+    "errorMessage": "The requested application does not exist"
 }
 ```
 
-**error 5030** - töötajat ei saa kustutada (määratlemata tehnilistel põhjustel)
+**error 3020** - taotlust ei saa kustutada, kuna taotlus on juba Rahvusarhiivi saadetud
 
 ```json
 {
     "responseStatus": "error",
-    "errorCode": 5030,
-    "errorMessage": "Could not delete employee"
+    "errorCode": 3020,
+    "errorMessage": "The requested application is in sent status and could not be deleted"
 }
 ```
 
-**error 5031** - vale meetod
+**error 3021** - taotlust ei saa kustutada (määratlemata tehnilistel põhjustel)
 
 ```json
 {
     "responseStatus": "error",
-    "errorCode": 5031,
+    "errorCode": 3021,
+    "errorMessage": "Deleting application failed"
+}
+```
+
+**error 3022** - vale meetod
+
+```json
+{
+    "responseStatus": "error",
+    "errorCode": 3022,
     "errorMessage": "Is not DELETE request"
 }
 ```

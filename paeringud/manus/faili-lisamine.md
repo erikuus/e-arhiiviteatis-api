@@ -10,7 +10,7 @@ description: Päringu dokumentatsioon
 {{apiBaseUrl}}/ska/file/create?token={{accessToken}}
 ```
 
-Lisab taotlusele uue faili, tagastab selle identifikaatori ja allalaadimise lingi.
+Lisab taotlusele uue faili, tagastab selle identifikaatori ja allalaadimise lingi. Faili saab lisada taotlusele, mis ei ole veel Rahvusarhiivi saadetud.
 
 ### Parameetrid (query params)
 
