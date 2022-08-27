@@ -67,3 +67,15 @@ Mitte ühtegi faili ei leitud.
     "fileListView": []
 }
 ```
+
+### Veateade
+
+**error 6010** - taotlust ei leitud (määratud identifikaatoriga taotlust andmebaasis ei ole)
+
+```json
+{
+    "responseStatus": "error",
+    "errorCode": 6010,
+    "errorMessage": "The requested application does not exist"
+}
+```

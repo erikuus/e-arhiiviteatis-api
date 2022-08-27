@@ -47,7 +47,7 @@ Fail on kustutatud.
 {
     "responseStatus": "error",
     "errorCode": 6020,
-    "errorMessage": "The requested file does not exist."
+    "errorMessage": "The requested file does not exist"
 }
 ```
 
