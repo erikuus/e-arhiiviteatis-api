@@ -4,63 +4,66 @@ description: Päringu dokumentatsioon
 
 # Taotluse vastuse vaatamine
 
-## <mark style="color:green;">GET</mark> ska/employee/view
+## <mark style="color:green;">GET</mark> ska/application/result
 
-```
-{{apiBaseUrl}}/ska/employee/view?token={{accessToken}}&id={{employeeId}}
-```
+<pre><code><strong>{{apiBaseUrl}}/ska/application/result?token={{accessToken}}&#x26;id={{applicationId}}</strong></code></pre>
 
-Väljastab töötaja andmed identifikaatori alusel.
+Väljastab e-arhiiviteatise (digitaalselt allkirjastatud faili andmed ja allalaadimise lingi), mille Rahvusarhiivi arhivaar koostas talle saadetud taotluse alusel.
 
 ### Parameetrid (query params)
 
 \*-ga märgitud on kohustuslikud
 
-| NIMI     | TÜÜP    | SELGITUS                                                     |   |
-| -------- | ------- | ------------------------------------------------------------ | - |
-| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention") |   |
-| id \*    | Integer | Töötaja identifikaator                                       |   |
-
-Töötaja identifikaatori saamise kohta vaata [toeoetaja-loomine.md](../toeoetaja/toeoetaja-loomine.md "mention") ja [toeoetaja-leidmine.md](../toeoetaja/toeoetaja-leidmine.md "mention")
+| NIMI     | TÜÜP    | SELGITUS                                                                                                                                                                    |   |
+| -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| token \* | String  | [juurdepaeaesukood.md](../../juurdepaeaesukood.md "mention")                                                                                                                |   |
+| id \*    | Integer | <p>Taotluse identifikaator<br><br><em>NB! Taotluse identifikaatori saamise kohta vaata</em> <a data-mention href="taotluse-loomine.md">taotluse-loomine.md</a><em></em></p> |   |
 
 ### Päringu näide (cUrl)
 
 {% code overflow="wrap" %}
 ```shell
-curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/employee/view?token=ea2397458ba644c6fd2d70b05adb6661&id=301'
+curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/application/result?token=846a0a7bc2be5e66cba566b0fcaeac3f&id=16610'
 ```
 {% endcode %}
 
 ### Vastuse näide
 
-Töötaja andmete väljastamine õnnestub.&#x20;
+E-arhiiviteatise (digitaalselt allkirjastatud faili andmed ja allalaadimise lingi) väljastamine õnnestub.
 
 ```json
 {
     "responseStatus": "ok",
-    "employeeDetailView": {
-        "Eesnimi": "Erik",
-        "Perekonnanimi": "Uus",
-        "E-post": "erik.uus@ra.ee",
-        "Telefon": "+372 5322 5388",
-        "Üksus": "Test osakond"
-    }
+    "resultFiles": [
+        {
+            "url": "https://www.ra.ee/vautest/upload/enquiry/2022/08/00c95808-20a2-4986-5a7f-066cb87c6bb1/erik-uus-eteatis.asice",
+            "filename": "erik-uus-eteatis.asice",
+            "filesize": "199 KB",
+            "creator": "Erik Uus",
+            "modified": "18.08.2022 11:42"
+        }
+    ]
 }
 ```
 
-{% hint style="info" %}
-Töötaja andmed väljastatakse eestikeelsete väljanimedega, nii et neid on võimalik kasutajaliideses vahetult kuvada.
-{% endhint %}
+Mitte ühtegi e-arhiiviteatist (faili) ei leitud.
+
+```json
+{
+    "responseStatus": "ok",
+    "resultFiles": []
+}
+```
 
 ### Veateade
 
-**error 5010** - töötajat ei leitud (määratud identifikaatoriga töötajat andmebaasis ei ole)
+**error 3010** - taotlust ei leitud (määratud identifikaatoriga taotlust andmebaasis ei ole)
 
 ```json
 {
     "responseStatus": "error",
-    "errorCode": 5010,
-    "errorMessage": "The requested employee does not exist."
+    "errorCode": 3010,
+    "errorMessage": "The requested application does not exist"
 }
 ```
 
