@@ -41,3 +41,7 @@
   * [Üksuste sirvimine](paeringud/ueksus/ueksuste-sirvimine.md)
   * [Üksuse leidmine](paeringud/ueksus/ueksuse-leidmine.md)
   * [Üksuse kustutamine](paeringud/ueksus/ueksuse-kustutamine.md)
+
+## Abivahendid
+
+* [Postman](abivahendid/postman.md)

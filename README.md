@@ -32,4 +32,4 @@ API kasutab sama _backendi_ ja salvestab andmeid samasse baasi, kuhu veebirakend
 
 **API Postman ekraanivaade**
 
-![](.gitbook/assets/postman.png)
+<figure><img src=".gitbook/assets/api.png" alt=""><figcaption></figcaption></figure>
