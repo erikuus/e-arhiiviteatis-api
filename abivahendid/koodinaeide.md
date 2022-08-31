@@ -252,7 +252,7 @@ try {
 ```
 
 {% hint style="info" %}
-Pane tähele, et juurdepääsukood päritakse ainult üksuse loomisel. Kõigi järgenavte päringute puhul võetakse see juba sessioonist.&#x20;
+Pane tähele, et selle näite puhul baasklass pärib juurdepääsukoodi ainult üksuse loomisel. Kõigi järgnevate päringute puhul võetakse see juba sessioonist.&#x20;
 {% endhint %}
 
 Ülaltoodud skript väljastab järgmise lehekülje:

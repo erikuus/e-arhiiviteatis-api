@@ -61,6 +61,16 @@ Töötaja muutmine õnnestub.
 
 ### Veateated
 
+**error 5010** - töötajat ei leitud (määratud identifikaatoriga töötajat andmebaasis ei ole)
+
+```json
+{
+    "responseStatus": "error",
+    "errorCode": 5010,
+    "errorMessage": "The requested employee does not exist."
+}
+```
+
 **error 5040** - töötajat ei saa muuta, kuna sisendväärtused ei valideeru&#x20;
 
 ```json

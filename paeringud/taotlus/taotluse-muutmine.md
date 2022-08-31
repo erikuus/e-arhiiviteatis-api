@@ -70,8 +70,8 @@ Kui taotlusele soovitakse lisada üks või mitu õppeastust ja/või töökohta, 
 | other\_comments                | String        | Muud märkused ja täiendused taotluse kohta                                                                                                                                                                                                                                                                                             |   |
 | taxnotice\_delivery\_method \* | String        | <p>Valik: kas taotleja soovib arhiivilt teadet riigilõivu tasumise kohta tavapostiga või e-postiga<br><br><em>NB! Lubatud väärtused on:</em><br><em></em><code>DELIVERY_POSTAL</code> <em>või</em> <code>DELIVERY_EMAIL</code></p>                                                                                                     |   |
 | copy\_delivery\_method         | String        | <p>Valik: kas taotleja soovib koopiat arhiiviteatisest tavapostiga või e-postiga<br><br><em>NB! Lubatud väärtused on:</em><br><em></em><code>DELIVERY_POSTAL</code> <em>või</em> <code>DELIVERY_EMAIL</code></p>                                                                                                                       |   |
-| employee\_id                   | Integer       | <p>Sotsiaalkindlustusameti töötaja, kes taotluse koostas/sisestas<br><br><em>NB! Üksuse identifikaatori saamise kohta vaata</em> <a data-mention href="../ueksus/ueksuse-loomine.md">ueksuse-loomine.md</a><em>ja</em> <a data-mention href="../ueksus/ueksuse-leidmine.md">ueksuse-leidmine.md</a><em></em></p>                       |   |
-| department\_id                 | Integer       | <p>Sotsiaalkindlustusameti üksus, kuhu arhiiviteatis edastatakse<br><br><em>NB! Töötaja identifikaatori saamise kohta vaata</em> <a data-mention href="../toeoetaja/toeoetaja-loomine.md">toeoetaja-loomine.md</a> <em>ja</em> <a data-mention href="../toeoetaja/toeoetaja-leidmine.md">toeoetaja-leidmine.md</a></p>                 |   |
+| employee\_id                   | Integer       | <p>Sotsiaalkindlustusameti töötaja, kes taotluse koostas/sisestas<br><br><em>NB! Töötaja identifikaatori saamise kohta vaata</em> <a data-mention href="../toeoetaja/toeoetaja-loomine.md">toeoetaja-loomine.md</a> <em>ja</em> <a data-mention href="../toeoetaja/toeoetaja-leidmine.md">toeoetaja-leidmine.md</a><em></em></p>       |   |
+| department\_id                 | Integer       | <p>Sotsiaalkindlustusameti üksus, kuhu arhiiviteatis edastatakse<br><br><em>NB! Üksuse identifikaatori saamise kohta vaata</em> <a data-mention href="../ueksus/ueksuse-loomine.md">ueksuse-loomine.md</a><em>ja</em> <a data-mention href="../ueksus/ueksuse-leidmine.md">ueksuse-leidmine.md</a><em></em></p>                        |   |
 
 #### Study
 
@@ -166,6 +166,16 @@ Taotluse muutmine õnnestub.
 ```
 
 ### Veateated
+
+**error 3010** - taotlust ei leitud (määratud identifikaatoriga taotlust andmebaasis ei ole)
+
+```json
+{
+    "responseStatus": "error",
+    "errorCode": 3010,
+    "errorMessage": "The requested application does not exist"
+}
+```
 
 **error 3040** - taotlust ei saa muuta, kuna taotlus on juba Rahvusarhiivi saadetud
 

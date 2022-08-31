@@ -61,6 +61,16 @@ curl --location --request PUT 'https://www.ra.ee/vau/index.php/api/ska/departmen
 
 ### Veateated
 
+**error 4010** - üksust ei leitud (määratud identifikaatoriga üksust andmebaasis ei ole)
+
+```json
+{
+    "responseStatus": "error",
+    "errorCode": 4010,
+    "errorMessage": "The requested department does not exist."
+}
+```
+
 **error 4040** - üksust ei saa muuta, kuna sisendväärtused ei valideeru&#x20;
 
 ```json

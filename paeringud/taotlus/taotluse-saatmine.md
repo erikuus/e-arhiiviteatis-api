@@ -42,6 +42,16 @@ Taotluse saatmine Rahvusarhiivi õnnestub.
 
 ### Veateated
 
+**error 3010** - taotlust ei leitud (määratud identifikaatoriga taotlust andmebaasis ei ole)
+
+```json
+{
+    "responseStatus": "error",
+    "errorCode": 3010,
+    "errorMessage": "The requested application does not exist"
+}
+```
+
 **error 3030** - taotlust ei saa saata, kuna see on juba saadetud
 
 ```json

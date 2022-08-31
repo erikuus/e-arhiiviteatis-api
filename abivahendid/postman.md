@@ -14,9 +14,9 @@ Kollektsiooni jagamine toimub _Via JSON Link_. Pärast kollektsioonile ligipää
 
 Muutujate `username` ja `password` __ kohta loe siit [juurdepaeaesutaotlus.md](../juurdepaeaesutaotlus.md "mention")
 
-Muutujad `username2` ja `password2` on vajalikud ainult testide jaoks ja nende väärtused saadetakse koos jagamise lingiga.
+Muutujad `username2` ja `password2` on vajalikud ainult testide jaoks (nimelt sellel kasutajal puudub e-arhiiviteatise taotlemise API kasutusõigus) ja nende väärtused saadetakse koos jagamise lingiga.
 
-Kollektsiooni kasutamisel tuleb esimese asjana jooksuta [`user/verify`](../paeringud/kasutaja.md) päringut ja kopeerida vastusest `accessToken` väärtus keskkonna samanimelise muutuja väärtuseks. Kui _token_ aegub, tuleb seda tegevust korrata.
+Kollektsiooni kasutamisel tuleb esimese asjana jooksutada [`user/verify`](../paeringud/kasutaja.md) päringut ja kopeerida vastusest `accessToken` väärtus keskkonna samanimelise muutuja väärtuseks. Kui _token_ aegub, tuleb seda tegevust korrata.
 
 {% hint style="info" %}
 Päringute gruppe saab käivitada suvalises järjekorras, aga grupi sees tuleks päringuid käivitada järjest. Näiteks`application/create`enne ja`application/update` pärast ja`application/delete`kõige lõpus. Siis ei ole vaja päringutes identifikaatoreid käsitsi muuta. Taotluse loomise päring omistab tagastatud uue taotluse ID väärtuse muutujale, mida järgnevad päringud kasutavad.

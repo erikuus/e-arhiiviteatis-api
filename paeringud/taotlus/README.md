@@ -8,7 +8,7 @@ Taotlust puudutav päringute grupp on selle API tuum. E-arhiiviteatise taotlemin
 
 * Manuse päringuid on vaja selleks, et mõnikord lisada taotlusele juurde faile, mis aitavad Rahvusarhiivil arhiiviteatist koostada. Need võivad olla digikujutised sünnitunnistusest või tööraamatust, taotleja avaldus eraldi failina ja muu taoline.
 * Töötaja päringuid on vaja selleks, et lisada taotluse juurde selle koostanud SKA töötaja kontaktandmed. Kui Rahvusarhiivi töötajal, kes taotlust menetleb, tekib küsimusi taotluse andmete kohta, saab ta kontaktandmete alusel võtta ühendust Sotsiaalkindlustusameti töötajaga.
-* Üksus päringuid on vaja selleks, et lisada taotluse juurde Sotsiaalkindlustusameti üksus, kus see koostati. See on vajalik juhul, kui teatise tellijaks ja riigilõivu tasujaks ei ole isik, vaid SKA üksus. Samuti tuleb iga taotluse puhul määrata üksus, kuhu arhiiviteatis meilitsi edastatakse.
+* Üksuse päringuid on vaja selleks, et lisada taotluse juurde Sotsiaalkindlustusameti üksus, kus see koostati. See on vajalik juhul, kui teatise tellijaks ja riigilõivu tasujaks ei ole isik, vaid SKA üksus. Samuti tuleb iga taotluse puhul määrata üksus, kuhu arhiiviteatis meilitsi edastatakse.
 
 **Veebirakenduse ekraanivaated**
 

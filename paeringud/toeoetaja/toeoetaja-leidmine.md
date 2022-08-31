@@ -31,7 +31,7 @@ curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/employee/
 
 ### Vastuse näide
 
-Üksuse identifikaatori väljastamine õnnestub.
+Töötaja identifikaatori väljastamine õnnestub.
 
 ```json
 {
@@ -42,7 +42,7 @@ curl --location --request GET 'https://www.ra.ee/vau/index.php/api/ska/employee/
 
 ### Veateade
 
-**error 5020** - üksust ei leitud (määratud nimega üksust andmebaasis ei ole)
+**error 5020** - töötajat ei leitud (määratud e-posti aadressiga töötajat andmebaasis ei ole)
 
 ```json
 {

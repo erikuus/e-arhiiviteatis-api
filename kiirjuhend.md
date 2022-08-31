@@ -30,7 +30,7 @@ Selles kiirjuhendis on kasutatud kontot, mille kasutajanimi on "erik" ja API tes
 
 Kõigile päringutele tuleb ühe parameetrina lisada juurde ajutiselt kehtiv kood ehk _token_. Kui _token_ puudub või on aegunud, päring ei õnnestu.
 
-_Tokeni_ pärimiseks käivitame me järgmise päringu:
+_Tokeni_ saamiseks käivitame me järgmise päringu:
 
 ```shell
 curl --location --request POST '{{apiBaseUrl}}/user/verify' \
